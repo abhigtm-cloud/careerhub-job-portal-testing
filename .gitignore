@@ -1,0 +1,12 @@
+.claude/
+node_modules/
+backend/.env
+frontend/dist/
+python-automation/venv/
+python-automation/.pytest_cache/
+python-automation/__pycache__/
+**/__pycache__/
+*.pyc
+postman/newman-report.json
+.DS_Store
+Thumbs.db

@@ -1,0 +1,588 @@
+{
+  "info": {
+    "name": "CareerHub API Tests",
+    "description": "API automation collection for CareerHub Job Portal (Automation Testing of CareerHub - Ritika, 23BCA10289, Chandigarh University)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "type": "text/javascript", "exec": [""] }
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register Candidate",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Candidate {{$randomInt}}\",\n  \"email\": \"postman_cand_{{$timestamp}}@careerhub-test.com\",\n  \"password\": \"StrongPass123\",\n  \"role\": \"candidate\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/register", "host": ["{{baseUrl}}"], "path": ["auth", "register"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 201', function () { pm.response.to.have.status(201); });",
+                "pm.test('Response time is below 2000ms', function () { pm.expect(pm.response.responseTime).to.be.below(2000); });",
+                "const body = pm.response.json();",
+                "pm.test('Response has token', function () { pm.expect(body.token).to.be.a('string'); });",
+                "pm.test('User role is candidate', function () { pm.expect(body.user.role).to.eql('candidate'); });",
+                "pm.test('Password hash not exposed', function () { pm.expect(body.user).to.not.have.property('passwordHash'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Register Recruiter",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Postman Recruiter {{$randomInt}}\",\n  \"email\": \"postman_rec_{{$timestamp}}@careerhub-test.com\",\n  \"password\": \"StrongPass123\",\n  \"role\": \"recruiter\",\n  \"company\": \"Postman Testing Co\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/register", "host": ["{{baseUrl}}"], "path": ["auth", "register"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 201', function () { pm.response.to.have.status(201); });",
+                "const body = pm.response.json();",
+                "pm.test('User role is recruiter', function () { pm.expect(body.user.role).to.eql('recruiter'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Register Duplicate Email (409)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Duplicate Candidate\",\n  \"email\": \"{{candidateEmail}}\",\n  \"password\": \"StrongPass123\",\n  \"role\": \"candidate\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/register", "host": ["{{baseUrl}}"], "path": ["auth", "register"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 409 for duplicate email', function () { pm.response.to.have.status(409); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Candidate Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{candidateEmail}}\",\n  \"password\": \"{{candidatePassword}}\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "pm.test('Response time is below 2000ms', function () { pm.expect(pm.response.responseTime).to.be.below(2000); });",
+                "const body = pm.response.json();",
+                "pm.environment.set('candidateToken', body.token);",
+                "pm.environment.set('candidateId', body.user.id);",
+                "pm.test('Token extracted and stored', function () { pm.expect(pm.environment.get('candidateToken')).to.be.a('string'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Recruiter Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{recruiterEmail}}\",\n  \"password\": \"{{recruiterPassword}}\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.environment.set('recruiterToken', body.token);",
+                "pm.test('Token extracted and stored', function () { pm.expect(pm.environment.get('recruiterToken')).to.be.a('string'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Login Invalid Credentials (401)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{candidateEmail}}\",\n  \"password\": \"WrongPassword999\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 401', function () { pm.response.to.have.status(401); });"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "item": [
+        {
+          "name": "List Jobs",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/jobs", "host": ["{{baseUrl}}"], "path": ["jobs"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('jobs is an array', function () { pm.expect(body.jobs).to.be.an('array'); });",
+                "if (body.jobs.length > 0) { pm.environment.set('testJobId', body.jobs[0]._id); }",
+                "pm.test('pagination object present', function () { pm.expect(body).to.have.property('pagination'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Search Jobs by Title",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/jobs?search=Developer",
+              "host": ["{{baseUrl}}"], "path": ["jobs"],
+              "query": [{ "key": "search", "value": "Developer" }]
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Filter Jobs by Type and Experience",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/jobs?type=Full-time&experience=Senior",
+              "host": ["{{baseUrl}}"], "path": ["jobs"],
+              "query": [{ "key": "type", "value": "Full-time" }, { "key": "experience", "value": "Senior" }]
+            }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Get Job Details",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/jobs/{{testJobId}}", "host": ["{{baseUrl}}"], "path": ["jobs", "{{testJobId}}"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('Job has title and company', function () { pm.expect(body.job).to.have.property('title'); pm.expect(body.job).to.have.property('company'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Get Job Invalid Id (400)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/jobs/not-a-valid-id", "host": ["{{baseUrl}}"], "path": ["jobs", "not-a-valid-id"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 400', function () { pm.response.to.have.status(400); });"]
+            }
+          }]
+        },
+        {
+          "name": "Get Job Not Found (404)",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/jobs/000000000000000000000000", "host": ["{{baseUrl}}"], "path": ["jobs", "000000000000000000000000"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 404', function () { pm.response.to.have.status(404); });"]
+            }
+          }]
+        },
+        {
+          "name": "Create Job (Recruiter)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Postman Created Role\",\n  \"company\": \"Postman Testing Co\",\n  \"location\": \"Remote\",\n  \"employmentType\": \"Full-time\",\n  \"experienceLevel\": \"Mid\",\n  \"skills\": [\"API Testing\", \"Postman\"],\n  \"description\": \"A job created directly through the Postman/Newman automation suite.\",\n  \"requirements\": [\"Experience with API testing\"],\n  \"salaryMin\": 500000,\n  \"salaryMax\": 800000\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/jobs", "host": ["{{baseUrl}}"], "path": ["jobs"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 201', function () { pm.response.to.have.status(201); });",
+                "const body = pm.response.json();",
+                "pm.environment.set('createdJobId', body.job._id);",
+                "pm.test('Job title matches', function () { pm.expect(body.job.title).to.eql('Postman Created Role'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Create Job Forbidden For Candidate (403)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Should Fail\",\n  \"company\": \"N/A\",\n  \"description\": \"Candidates must not be able to create jobs.\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/jobs", "host": ["{{baseUrl}}"], "path": ["jobs"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 403', function () { pm.response.to.have.status(403); });"]
+            }
+          }]
+        },
+        {
+          "name": "Update Job",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{recruiterToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Postman Updated Role\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/jobs/{{createdJobId}}", "host": ["{{baseUrl}}"], "path": ["jobs", "{{createdJobId}}"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('Title updated', function () { pm.expect(body.job.title).to.eql('Postman Updated Role'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Delete Job",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }],
+            "url": { "raw": "{{baseUrl}}/jobs/{{createdJobId}}", "host": ["{{baseUrl}}"], "path": ["jobs", "{{createdJobId}}"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });"]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "item": [
+        {
+          "name": "Submit Application",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobId\": \"{{testJobId}}\",\n  \"coverLetter\": \"Submitted through the Postman/Newman automation suite.\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/applications", "host": ["{{baseUrl}}"], "path": ["applications"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 201 or 409 (already applied)', function () {",
+                "  pm.expect([201, 409]).to.include(pm.response.code);",
+                "});",
+                "if (pm.response.code === 201) {",
+                "  const body = pm.response.json();",
+                "  pm.environment.set('applicationId', body.application._id);",
+                "}"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Duplicate Application (409)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobId\": \"{{testJobId}}\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/applications", "host": ["{{baseUrl}}"], "path": ["applications"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 409 for duplicate application', function () { pm.response.to.have.status(409); });"]
+            }
+          }]
+        },
+        {
+          "name": "Get My Applications",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": { "raw": "{{baseUrl}}/applications/mine", "host": ["{{baseUrl}}"], "path": ["applications", "mine"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('applications is an array', function () { pm.expect(body.applications).to.be.an('array'); });"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Saved Jobs",
+      "item": [
+        {
+          "name": "Save Job",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"jobId\": \"{{testJobId}}\"\n}" },
+            "url": { "raw": "{{baseUrl}}/saved-jobs", "host": ["{{baseUrl}}"], "path": ["saved-jobs"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 201 or 409 (already saved)', function () {",
+                "  pm.expect([201, 409]).to.include(pm.response.code);",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "List Saved Jobs",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": { "raw": "{{baseUrl}}/saved-jobs", "host": ["{{baseUrl}}"], "path": ["saved-jobs"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('savedJobs is an array', function () { pm.expect(body.savedJobs).to.be.an('array'); });"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Remove Saved Job",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": { "raw": "{{baseUrl}}/saved-jobs/{{testJobId}}", "host": ["{{baseUrl}}"], "path": ["saved-jobs", "{{testJobId}}"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });"]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": { "raw": "{{baseUrl}}/profile", "host": ["{{baseUrl}}"], "path": ["profile"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });"]
+            }
+          }]
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{candidateToken}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"headline\": \"Updated via Postman/Newman\",\n  \"skills\": [\"Postman\", \"Newman\", \"API Testing\"]\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/profile", "host": ["{{baseUrl}}"], "path": ["profile"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('Headline updated', function () { pm.expect(body.user.headline).to.eql('Updated via Postman/Newman'); });"
+              ]
+            }
+          }]
+        }
+      ]
+    },
+    {
+      "name": "Statistics",
+      "item": [
+        {
+          "name": "Get Recruiter Stats",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{recruiterToken}}" }],
+            "url": { "raw": "{{baseUrl}}/recruiter/stats", "host": ["{{baseUrl}}"], "path": ["recruiter", "stats"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": [
+                "pm.test('Status code is 200', function () { pm.response.to.have.status(200); });",
+                "const body = pm.response.json();",
+                "pm.test('Has totalJobs and totalApplications', function () {",
+                "  pm.expect(body).to.have.property('totalJobs');",
+                "  pm.expect(body).to.have.property('totalApplications');",
+                "});"
+              ]
+            }
+          }]
+        },
+        {
+          "name": "Get Recruiter Stats Forbidden For Candidate (403)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{candidateToken}}" }],
+            "url": { "raw": "{{baseUrl}}/recruiter/stats", "host": ["{{baseUrl}}"], "path": ["recruiter", "stats"] }
+          },
+          "event": [{
+            "listen": "test",
+            "script": {
+              "type": "text/javascript",
+              "exec": ["pm.test('Status code is 403', function () { pm.response.to.have.status(403); });"]
+            }
+          }]
+        }
+      ]
+    }
+  ]
+}

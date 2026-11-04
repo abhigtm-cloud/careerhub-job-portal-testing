@@ -1,0 +1,3562 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.4, pytest-8.3.3, pluggy-1.7.0 -- D:\RITIKA\python-automation\venv\Scripts\python.exe
+cachedir: .pytest_cache
+metadata: {'Python': '3.13.4', 'Platform': 'Windows-11-10.0.26100-SP0', 'Packages': {'pytest': '8.3.3', 'pluggy': '1.7.0'}, 'Plugins': {'html': '4.1.1', 'metadata': '3.1.1'}, 'JAVA_HOME': 'C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.13.9-hotspot\\'}
+rootdir: D:\RITIKA\python-automation
+configfile: pytest.ini
+testpaths: tests
+plugins: html-4.1.1, metadata-3.1.1
+collecting ... collected 116 items
+
+tests/test_api_endpoints.py::TestAuthEndpoints::test_register_returns_201_and_token PASSED [  0%]
+tests/test_api_endpoints.py::TestAuthEndpoints::test_register_duplicate_email_returns_409 PASSED [  1%]
+tests/test_api_endpoints.py::TestAuthEndpoints::test_register_missing_fields_returns_400 PASSED [  2%]
+tests/test_api_endpoints.py::TestAuthEndpoints::test_login_valid_credentials_returns_200 PASSED [  3%]
+tests/test_api_endpoints.py::TestAuthEndpoints::test_login_invalid_credentials_returns_401 PASSED [  4%]
+tests/test_api_endpoints.py::TestAuthEndpoints::test_me_endpoint_returns_current_user PASSED [  5%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_list_jobs_returns_200 PASSED [  6%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_get_single_job_returns_200 PASSED [  6%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_get_job_with_invalid_id_returns_400 PASSED [  7%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_get_job_with_nonexistent_id_returns_404 PASSED [  8%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_create_job_without_auth_returns_401 PASSED [  9%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_create_job_as_candidate_returns_403 PASSED [ 10%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_create_job_as_recruiter_returns_201 PASSED [ 11%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_search_jobs_by_query_param PASSED [ 12%]
+tests/test_api_endpoints.py::TestJobEndpoints::test_pagination_boundary_large_page_returns_empty_list PASSED [ 12%]
+tests/test_api_endpoints.py::TestApplicationEndpoints::test_apply_without_auth_returns_401 PASSED [ 13%]
+tests/test_api_endpoints.py::TestApplicationEndpoints::test_apply_with_invalid_job_id_returns_400 PASSED [ 14%]
+tests/test_api_endpoints.py::TestApplicationEndpoints::test_apply_and_duplicate_application_returns_409 PASSED [ 15%]
+tests/test_api_endpoints.py::TestApplicationEndpoints::test_get_my_applications_returns_200 PASSED [ 16%]
+tests/test_api_endpoints.py::TestSavedJobEndpoints::test_save_and_list_and_remove_job PASSED [ 17%]
+tests/test_api_endpoints.py::TestProfileEndpoints::test_get_profile_returns_200 PASSED [ 18%]
+tests/test_api_endpoints.py::TestProfileEndpoints::test_update_profile_returns_200 PASSED [ 18%]
+tests/test_api_endpoints.py::TestProfileEndpoints::test_update_profile_invalid_phone_returns_400 PASSED [ 19%]
+tests/test_api_endpoints.py::TestRecruiterStatsEndpoint::test_recruiter_stats_returns_200 PASSED [ 20%]
+tests/test_api_endpoints.py::TestRecruiterStatsEndpoint::test_recruiter_stats_forbidden_for_candidate PASSED [ 21%]
+tests/test_api_endpoints.py::TestResponseTime::test_jobs_listing_responds_within_reasonable_time PASSED [ 22%]
+tests/test_api_endpoints.py::TestResponseTime::test_login_responds_within_reasonable_time PASSED [ 23%]
+tests/test_api_endpoints.py::TestUnknownRoute::test_unknown_route_returns_404 PASSED [ 24%]
+tests/test_cross_browser.py::test_jobs_page_loads_on_each_browser[chrome] PASSED [ 25%]
+tests/test_cross_browser.py::test_jobs_page_loads_on_each_browser[edge] ERROR [ 25%]
+tests/test_cross_browser.py::test_login_works_on_each_browser[chrome] PASSED [ 26%]
+tests/test_cross_browser.py::test_login_works_on_each_browser[edge] ERROR [ 27%]
+tests/test_cross_browser.py::test_firefox_is_explicitly_rejected PASSED  [ 28%]
+tests/test_cross_browser.py::test_unsupported_browser_raises_not_implemented PASSED [ 29%]
+tests/test_database_integration.py::TestUserCollection::test_candidate_document_exists_with_expected_fields PASSED [ 30%]
+tests/test_database_integration.py::TestUserCollection::test_recruiter_document_exists_with_expected_fields PASSED [ 31%]
+tests/test_database_integration.py::TestUserCollection::test_passwords_are_bcrypt_hashed_not_plaintext PASSED [ 31%]
+tests/test_database_integration.py::TestUserCollection::test_no_plaintext_password_field_present PASSED [ 32%]
+tests/test_database_integration.py::TestUserCollection::test_user_role_is_restricted_to_known_values PASSED [ 33%]
+tests/test_database_integration.py::TestJobCollection::test_jobs_collection_has_documents PASSED [ 34%]
+tests/test_database_integration.py::TestJobCollection::test_job_documents_reference_valid_recruiter PASSED [ 35%]
+tests/test_database_integration.py::TestJobCollection::test_job_documents_have_required_fields PASSED [ 36%]
+tests/test_database_integration.py::TestApplicationCollection::test_application_documents_reference_valid_job_and_candidate PASSED [ 37%]
+tests/test_database_integration.py::TestApplicationCollection::test_duplicate_application_unique_index_exists PASSED [ 37%]
+tests/test_database_integration.py::TestSavedJobCollection::test_saved_job_unique_index_exists PASSED [ 38%]
+tests/test_database_integration.py::TestDataPersistence::test_write_and_read_back_marker_document PASSED [ 39%]
+tests/test_regression.py::test_full_candidate_journey_register_search_apply_save_profile PASSED [ 40%]
+tests/test_regression.py::test_full_recruiter_journey_register_post_edit_delete_job PASSED [ 41%]
+tests/test_responsive_layout.py::test_jobs_page_renders_without_horizontal_overflow[desktop] ERROR [ 42%]
+tests/test_responsive_layout.py::test_jobs_page_renders_without_horizontal_overflow[tablet] PASSED [ 43%]
+tests/test_responsive_layout.py::test_jobs_page_renders_without_horizontal_overflow[mobile] PASSED [ 43%]
+tests/test_responsive_layout.py::test_navbar_is_usable_at_each_viewport[desktop] PASSED [ 44%]
+tests/test_responsive_layout.py::test_navbar_is_usable_at_each_viewport[tablet] PASSED [ 45%]
+tests/test_responsive_layout.py::test_navbar_is_usable_at_each_viewport[mobile] PASSED [ 46%]
+tests/test_responsive_layout.py::test_login_form_usable_on_mobile PASSED [ 47%]
+tests/test_security.py::TestAuthenticationSecurity::test_protected_endpoint_rejects_missing_token PASSED [ 48%]
+tests/test_security.py::TestAuthenticationSecurity::test_protected_endpoint_rejects_malformed_token PASSED [ 49%]
+tests/test_security.py::TestAuthenticationSecurity::test_protected_endpoint_rejects_tampered_token PASSED [ 50%]
+tests/test_security.py::TestAuthenticationSecurity::test_login_response_never_exposes_password_hash PASSED [ 50%]
+tests/test_security.py::TestRoleBasedAccessControl::test_candidate_cannot_create_job PASSED [ 51%]
+tests/test_security.py::TestRoleBasedAccessControl::test_recruiter_cannot_apply_to_job PASSED [ 52%]
+tests/test_security.py::TestRoleBasedAccessControl::test_recruiter_cannot_access_another_recruiters_job_applications PASSED [ 53%]
+tests/test_security.py::TestRoleBasedAccessControl::test_candidate_cannot_view_recruiter_stats PASSED [ 54%]
+tests/test_security.py::TestInputSanitization::test_registration_handles_xss_payload_in_name_safely[<script>alert(1)</script>] PASSED [ 55%]
+tests/test_security.py::TestInputSanitization::test_registration_handles_xss_payload_in_name_safely["><img src=x onerror=alert(1)>] PASSED [ 56%]
+tests/test_security.py::TestInputSanitization::test_registration_handles_xss_payload_in_name_safely['; alert(1); //] PASSED [ 56%]
+tests/test_security.py::TestInputSanitization::test_login_handles_nosql_injection_payload_safely[payload0] PASSED [ 57%]
+tests/test_security.py::TestInputSanitization::test_login_handles_nosql_injection_payload_safely[payload1] PASSED [ 58%]
+tests/test_security.py::TestInputSanitization::test_login_handles_nosql_injection_payload_safely[' || '1'=='1] PASSED [ 59%]
+tests/test_security.py::TestUiAccessRestrictions::test_candidate_redirected_away_from_recruiter_dashboard PASSED [ 60%]
+tests/test_security.py::TestUiAccessRestrictions::test_unauthenticated_user_redirected_to_login_from_profile PASSED [ 61%]
+tests/test_smoke.py::test_api_health_check PASSED                        [ 62%]
+tests/test_smoke.py::test_jobs_endpoint_returns_list PASSED              [ 62%]
+tests/test_smoke.py::test_homepage_loads_and_shows_jobs PASSED           [ 63%]
+tests/test_smoke.py::test_demo_candidate_login_smoke PASSED              [ 64%]
+tests/test_ui_authentication.py::TestRegistration::test_candidate_registration_positive PASSED [ 65%]
+tests/test_ui_authentication.py::TestRegistration::test_recruiter_registration_positive PASSED [ 66%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_duplicate_email PASSED [ 67%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[plainaddress] FAILED [ 68%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[@missingusername.com] FAILED [ 68%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[user@.com] FAILED [ 69%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[user@com] PASSED [ 70%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[user name@site.com] FAILED [ 71%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_weak_password[] FAILED [ 72%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_weak_password[123] PASSED [ 73%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_weak_password[a] PASSED [ 74%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_weak_password[ab] ERROR [ 75%]
+tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_empty_name FAILED [ 75%]
+tests/test_ui_authentication.py::TestLogin::test_candidate_login_positive PASSED [ 76%]
+tests/test_ui_authentication.py::TestLogin::test_recruiter_login_positive PASSED [ 77%]
+tests/test_ui_authentication.py::TestLogin::test_login_rejects_incorrect_password FAILED [ 78%]
+tests/test_ui_authentication.py::TestLogin::test_login_rejects_unknown_email PASSED [ 79%]
+tests/test_ui_authentication.py::TestLogin::test_demo_candidate_login_button PASSED [ 80%]
+tests/test_ui_authentication.py::TestLogin::test_demo_recruiter_login_button PASSED [ 81%]
+tests/test_ui_authentication.py::TestLogout::test_logout_clears_session PASSED [ 81%]
+tests/test_ui_job_applications.py::TestJobApplications::test_candidate_can_apply_to_a_job PASSED [ 82%]
+tests/test_ui_job_applications.py::TestJobApplications::test_duplicate_application_is_prevented ERROR [ 83%]
+tests/test_ui_job_applications.py::TestJobApplications::test_my_applications_page_empty_state_for_new_user PASSED [ 84%]
+tests/test_ui_job_applications.py::TestJobApplications::test_login_as_demo_candidate_sees_application_history PASSED [ 85%]
+tests/test_ui_job_management.py::TestJobListing::test_jobs_are_displayed_on_landing_page PASSED [ 86%]
+tests/test_ui_job_management.py::TestJobListing::test_search_by_title PASSED [ 87%]
+tests/test_ui_job_management.py::TestJobListing::test_search_by_company PASSED [ 87%]
+tests/test_ui_job_management.py::TestJobListing::test_search_by_skill PASSED [ 88%]
+tests/test_ui_job_management.py::TestJobListing::test_search_with_no_matches_shows_empty_state PASSED [ 89%]
+tests/test_ui_job_management.py::TestJobListing::test_filter_by_employment_type PASSED [ 90%]
+tests/test_ui_job_management.py::TestJobListing::test_filter_by_experience_level PASSED [ 91%]
+tests/test_ui_job_management.py::TestJobListing::test_reset_filters_restores_full_list PASSED [ 92%]
+tests/test_ui_job_management.py::TestJobDetail::test_opening_job_detail_modal_shows_description PASSED [ 93%]
+tests/test_ui_job_management.py::TestJobDetail::test_closing_job_detail_modal PASSED [ 93%]
+tests/test_ui_saved_jobs_profile.py::TestSavedJobs::test_saved_jobs_page_empty_for_new_user PASSED [ 94%]
+tests/test_ui_saved_jobs_profile.py::TestSavedJobs::test_save_a_job_and_view_it PASSED [ 95%]
+tests/test_ui_saved_jobs_profile.py::TestSavedJobs::test_remove_a_saved_job PASSED [ 96%]
+tests/test_ui_saved_jobs_profile.py::TestProfile::test_edit_profile_headline_and_phone PASSED [ 97%]
+tests/test_ui_saved_jobs_profile.py::TestProfile::test_add_and_remove_skill PASSED [ 98%]
+tests/test_ui_saved_jobs_profile.py::TestProfile::test_profile_rejects_invalid_phone FAILED [ 99%]
+tests/test_ui_saved_jobs_profile.py::TestProfile::test_profile_handles_boundary_headline_length PASSED [100%]
+
+=================================== ERRORS ====================================
+________ ERROR at setup of test_jobs_page_loads_on_each_browser[edge] _________
+
+self = <HTTPSConnection(host='msedgedriver.azureedge.net', port=443) at 0x22fd5871f90>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+>           sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+
+venv\Lib\site-packages\urllib3\connection.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\util\connection.py:60: in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+host = 'msedgedriver.azureedge.net', port = 443
+family = <AddressFamily.AF_UNSPEC: 0>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, flags = 0
+
+    def getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+        """Resolve host and port into list of address info entries.
+    
+        Translate the host/port argument into a sequence of 5-tuples that contain
+        all the necessary arguments for creating a socket connected to that service.
+        host is a domain name, a string representation of an IPv4/v6 address or
+        None. port is a string service name such as 'http', a numeric port number or
+        None. By passing None as the value of host and port, you can pass NULL to
+        the underlying C API.
+    
+        The family, type and proto arguments can be optionally specified in order to
+        narrow the list of addresses returned. Passing zero as a value for each of
+        these arguments selects the full range of results.
+        """
+        # We override this function since we want to translate the numeric family
+        # and socket type values to enum constants.
+        addrlist = []
+>       for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+E       socket.gaierror: [Errno 11001] getaddrinfo failed
+
+C:\Users\LOVELY\AppData\Local\Programs\Python\Python313\Lib\socket.py:977: gaierror
+
+The above exception was the direct cause of the following exception:
+
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD58725D0>
+method = 'GET', url = '/LATEST_RELEASE_154_WINDOWS', body = None
+headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+redirect = False, assert_same_host = False
+timeout = Timeout(connect=None, read=None, total=None), pool_timeout = None
+release_conn = False, chunked = False, body_pos = None, preload_content = False
+decode_content = False, response_kw = {}, destination_scheme = None, conn = None
+release_this_conn = True, http_tunnel_required = False, err = None
+clean_exit = False
+
+    def urlopen(  # type: ignore[override]
+        self,
+        method: str,
+        url: str,
+        body: _TYPE_BODY | None = None,
+        headers: typing.Mapping[str, str] | None = None,
+        retries: Retry | bool | int | None = None,
+        redirect: bool = True,
+        assert_same_host: bool = True,
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        pool_timeout: int | None = None,
+        release_conn: bool | None = None,
+        chunked: bool = False,
+        body_pos: _TYPE_BODY_POSITION | None = None,
+        preload_content: bool = True,
+        decode_content: bool = True,
+        **response_kw: typing.Any,
+    ) -> BaseHTTPResponse:
+        """
+        Get a connection from the pool and perform an HTTP request. This is the
+        lowest level call for making a request, so you'll need to specify all
+        the raw details.
+    
+        .. note::
+    
+           More commonly, it's appropriate to use a convenience method
+           such as :meth:`request`.
+    
+        .. note::
+    
+           `release_conn` will only behave as expected if
+           `preload_content=False` because we want to make
+           `preload_content=False` the default behaviour someday soon without
+           breaking backwards compatibility.
+    
+        :param method:
+            HTTP request method (such as GET, POST, PUT, etc.)
+    
+        :param url:
+            The URL to perform the request on.
+    
+        :param body:
+            Data to send in the request body, either :class:`str`, :class:`bytes`,
+            an iterable of :class:`str`/:class:`bytes`, or a file-like object.
+    
+        :param headers:
+            Dictionary of custom headers to send, such as User-Agent,
+            If-None-Match, etc. If None, pool headers are used. If provided,
+            these headers completely replace any pool-specific headers.
+    
+        :param retries:
+            Configure the number of retries to allow before raising a
+            :class:`~urllib3.exceptions.MaxRetryError` exception.
+    
+            If ``None`` (default) will retry 3 times, see ``Retry.DEFAULT``. Pass a
+            :class:`~urllib3.util.retry.Retry` object for fine-grained control
+            over different types of retries.
+            Pass an integer number to retry connection errors that many times,
+            but no other types of errors. Pass zero to never retry.
+    
+            If ``False``, then retries are disabled and any exception is raised
+            immediately. Also, instead of raising a MaxRetryError on redirects,
+            the redirect response will be returned.
+    
+        :type retries: :class:`~urllib3.util.retry.Retry`, False, or an int.
+    
+        :param redirect:
+            If True, automatically handle redirects (status codes 301, 302,
+            303, 307, 308). Each redirect counts as a retry. Disabling retries
+            will disable redirect, too.
+    
+        :param assert_same_host:
+            If ``True``, will make sure that the host of the pool requests is
+            consistent else will raise HostChangedError. When ``False``, you can
+            use the pool on an HTTP proxy and request foreign hosts.
+    
+        :param timeout:
+            If specified, overrides the default timeout for this one
+            request. It may be a float (in seconds) or an instance of
+            :class:`urllib3.util.Timeout`.
+    
+        :param pool_timeout:
+            If set and the pool is set to block=True, then this method will
+            block for ``pool_timeout`` seconds and raise EmptyPoolError if no
+            connection is available within the time period.
+    
+        :param bool preload_content:
+            If True, the response's body will be preloaded into memory.
+    
+        :param bool decode_content:
+            If True, will attempt to decode the body based on the
+            'content-encoding' header.
+    
+        :param release_conn:
+            If False, then the urlopen call will not release the connection
+            back into the pool once a response is received (but will release if
+            you read the entire contents of the response such as when
+            `preload_content=True`). This is useful if you're not preloading
+            the response's content immediately. You will need to call
+            ``r.release_conn()`` on the response ``r`` to return the connection
+            back into the pool. If None, it takes the value of ``preload_content``
+            which defaults to ``True``.
+    
+        :param bool chunked:
+            If True, urllib3 will send the body using chunked transfer
+            encoding. Otherwise, urllib3 will send the body using the standard
+            content-length form. Defaults to False.
+    
+        :param int body_pos:
+            Position to seek to in file-like body in the event of a retry or
+            redirect. Typically this won't need to be set because urllib3 will
+            auto-populate the value when needed.
+        """
+        # Ensure that the URL we're connecting to is properly encoded
+        if url.startswith("/"):
+            # URLs starting with / are inherently schemeless.
+            url = to_str(_encode_target(url))
+            destination_scheme = None
+        else:
+            parsed_url = parse_url(url)
+            destination_scheme = parsed_url.scheme
+            url = to_str(parsed_url._replace(fragment=None).url)
+    
+        if headers is None:
+            headers = self.headers
+    
+        if not isinstance(retries, Retry):
+            retries = Retry.from_int(retries, redirect=redirect, default=self.retries)
+    
+        if release_conn is None:
+            release_conn = preload_content
+    
+        # Check host
+        if assert_same_host and not self.is_same_host(url):
+            raise HostChangedError(self, url, retries)
+    
+        conn = None
+    
+        # Track whether `conn` needs to be released before
+        # returning/raising/recursing. Update this variable if necessary, and
+        # leave `release_conn` constant throughout the function. That way, if
+        # the function recurses, the original value of `release_conn` will be
+        # passed down into the recursive call, and its value will be respected.
+        #
+        # See issue #651 [1] for details.
+        #
+        # [1] <https://github.com/urllib3/urllib3/issues/651>
+        release_this_conn = release_conn
+    
+        http_tunnel_required = connection_requires_http_tunnel(
+            self.proxy, self.proxy_config, destination_scheme
+        )
+    
+        # Merge the proxy headers. Only done when not using HTTP CONNECT. We
+        # have to copy the headers dict so we can safely change it without those
+        # changes being reflected in anyone else's copy.
+        if not http_tunnel_required:
+            headers = headers.copy()  # type: ignore[attr-defined]
+            headers.update(self.proxy_headers)  # type: ignore[union-attr]
+    
+        # Must keep the exception bound to a separate variable or else Python 3
+        # complains about UnboundLocalError.
+        err = None
+    
+        # Keep track of whether we cleanly exited the except block. This
+        # ensures we do proper cleanup in finally.
+        clean_exit = False
+    
+        # Rewind body position, if needed. Record current position
+        # for future rewinds in the event of a redirect/retry.
+        body_pos = set_file_position(body, body_pos)
+    
+        timeout_obj = self._get_timeout(timeout)
+        try:
+            # Request a connection from the queue.
+            conn = self._get_conn(timeout=pool_timeout)
+            conn.timeout = timeout_obj.connect_timeout  # type: ignore[assignment]
+    
+            # Is this a closed/new connection that requires CONNECT tunnelling?
+            if self.proxy is not None and http_tunnel_required and conn.is_closed:
+                try:
+                    self._prepare_proxy(conn)
+                except (BaseSSLError, OSError, SocketTimeout) as e:
+                    self._raise_timeout(
+                        err=e, url=self.proxy.url, timeout_value=conn.timeout
+                    )
+                    raise
+    
+            # If we're going to release the connection in ``finally:``, then
+            # the response doesn't need to know about the connection. Otherwise
+            # it will also try to release it and we'll have a double-release
+            # mess.
+            response_conn = conn if not release_conn else None
+    
+            # Make the request on the HTTPConnection object
+>           response = self._make_request(
+                conn,
+                method,
+                url,
+                timeout=timeout_obj,
+                body=body,
+                headers=headers,
+                chunked=chunked,
+                retries=retries,
+                response_conn=response_conn,
+                preload_content=preload_content,
+                decode_content=decode_content,
+                **response_kw,
+            )
+
+venv\Lib\site-packages\urllib3\connectionpool.py:793: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:494: in _make_request
+    raise new_e
+venv\Lib\site-packages\urllib3\connectionpool.py:470: in _make_request
+    self._validate_conn(conn)
+venv\Lib\site-packages\urllib3\connectionpool.py:1125: in _validate_conn
+    conn.connect()
+venv\Lib\site-packages\urllib3\connection.py:827: in connect
+    self.sock = sock = self._new_conn()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <HTTPSConnection(host='msedgedriver.azureedge.net', port=443) at 0x22fd5871f90>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+            sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+        except socket.gaierror as e:
+>           raise NameResolutionError(self.host, self, e) from e
+E           urllib3.exceptions.NameResolutionError: HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)
+
+venv\Lib\site-packages\urllib3\connection.py:246: NameResolutionError
+
+The above exception was the direct cause of the following exception:
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD569BED0>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+>           resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+
+venv\Lib\site-packages\requests\adapters.py:667: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:847: in urlopen
+    retries = retries.increment(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+method = 'GET', url = '/LATEST_RELEASE_154_WINDOWS', response = None
+error = NameResolutionError("HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)")
+_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD58725D0>
+_stacktrace = <traceback object at 0x0000022FD58404C0>
+
+    def increment(
+        self,
+        method: str | None = None,
+        url: str | None = None,
+        response: BaseHTTPResponse | None = None,
+        error: Exception | None = None,
+        _pool: ConnectionPool | None = None,
+        _stacktrace: TracebackType | None = None,
+    ) -> Self:
+        """Return a new Retry object with incremented retry counters.
+    
+        :param response: A response object, or None, if the server did not
+            return a response.
+        :type response: :class:`~urllib3.response.BaseHTTPResponse`
+        :param Exception error: An error encountered during the request, or
+            None if the response was received successfully.
+    
+        :return: A new ``Retry`` object.
+        """
+        if self.total is False and error:
+            # Disabled, indicate to re-raise the error.
+            raise reraise(type(error), error, _stacktrace)
+    
+        total = self.total
+        if total is not None:
+            total -= 1
+    
+        connect = self.connect
+        read = self.read
+        redirect = self.redirect
+        status_count = self.status
+        other = self.other
+        cause = "unknown"
+        status = None
+        redirect_location = None
+    
+        if error and self._is_connection_error(error):
+            # Connect retry?
+            if connect is False:
+                raise reraise(type(error), error, _stacktrace)
+            elif connect is not None:
+                connect -= 1
+    
+        elif error and self._is_read_error(error):
+            # Read retry?
+            if read is False or method is None or not self._is_method_retryable(method):
+                raise reraise(type(error), error, _stacktrace)
+            elif read is not None:
+                read -= 1
+    
+        elif error:
+            # Other retry?
+            if other is not None:
+                other -= 1
+    
+        elif response and response.get_redirect_location():
+            # Redirect retry?
+            if redirect is not None:
+                redirect -= 1
+            cause = "too many redirects"
+            response_redirect_location = response.get_redirect_location()
+            if response_redirect_location:
+                redirect_location = response_redirect_location
+            status = response.status
+    
+        else:
+            # Incrementing because of a server error like a 500 in
+            # status_forcelist and the given method is in the allowed_methods
+            cause = ResponseError.GENERIC_ERROR
+            if response and response.status:
+                if status_count is not None:
+                    status_count -= 1
+                cause = ResponseError.SPECIFIC_ERROR.format(status_code=response.status)
+                status = response.status
+    
+        history = self.history + (
+            RequestHistory(method, url, error, status, redirect_location),
+        )
+    
+        new_retry = self.new(
+            total=total,
+            connect=connect,
+            read=read,
+            redirect=redirect,
+            status=status_count,
+            other=other,
+            history=history,
+        )
+    
+        if new_retry.is_exhausted():
+            reason = error or ResponseError(cause)
+>           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='msedgedriver.azureedge.net', port=443): Max retries exceeded with url: /LATEST_RELEASE_154_WINDOWS (Caused by NameResolutionError("HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)"))
+
+venv\Lib\site-packages\urllib3\util\retry.py:555: MaxRetryError
+
+During handling of the above exception, another exception occurred:
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD5872FD0>
+url = 'https://msedgedriver.azureedge.net/LATEST_RELEASE_154_WINDOWS'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+>           resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\requests\api.py:73: in get
+    return request("get", url, params=params, **kwargs)
+venv\Lib\site-packages\requests\api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+venv\Lib\site-packages\requests\sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+venv\Lib\site-packages\requests\sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD569BED0>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+            resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+    
+        except (ProtocolError, OSError) as err:
+            raise ConnectionError(err, request=request)
+    
+        except MaxRetryError as e:
+            if isinstance(e.reason, ConnectTimeoutError):
+                # TODO: Remove this in 3.0.0: see #2811
+                if not isinstance(e.reason, NewConnectionError):
+                    raise ConnectTimeout(e, request=request)
+    
+            if isinstance(e.reason, ResponseError):
+                raise RetryError(e, request=request)
+    
+            if isinstance(e.reason, _ProxyError):
+                raise ProxyError(e, request=request)
+    
+            if isinstance(e.reason, _SSLError):
+                # This branch is for urllib3 v1.22 and later.
+                raise SSLError(e, request=request)
+    
+>           raise ConnectionError(e, request=request)
+E           requests.exceptions.ConnectionError: HTTPSConnectionPool(host='msedgedriver.azureedge.net', port=443): Max retries exceeded with url: /LATEST_RELEASE_154_WINDOWS (Caused by NameResolutionError("HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)"))
+
+venv\Lib\site-packages\requests\adapters.py:700: ConnectionError
+
+During handling of the above exception, another exception occurred:
+
+request = <SubRequest 'cross_browser_driver' for <Function test_jobs_page_loads_on_each_browser[edge]>>
+
+    @pytest.fixture
+    def cross_browser_driver(request):
+>       drv = build_driver(request.param)
+
+tests\test_cross_browser.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\test_helpers.py:47: in build_driver
+    service = EdgeService(EdgeChromiumDriverManager().install())
+venv\Lib\site-packages\webdriver_manager\microsoft.py:73: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+venv\Lib\site-packages\webdriver_manager\core\manager.py:35: in _get_driver_binary_path
+    binary_path = self._cache_manager.find_driver(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:107: in find_driver
+    driver_version = self.get_cache_key_driver_version(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:154: in get_cache_key_driver_version
+    return driver.get_driver_version_to_download()
+venv\Lib\site-packages\webdriver_manager\core\driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+venv\Lib\site-packages\webdriver_manager\drivers\edge.py:51: in get_latest_release_version
+    resp = self._http_client.get(url=latest_release_url)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD5872FD0>
+url = 'https://msedgedriver.azureedge.net/LATEST_RELEASE_154_WINDOWS'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+            resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+        except exceptions.ConnectionError:
+>           raise exceptions.ConnectionError(f"Could not reach host. Are you offline?")
+E           requests.exceptions.ConnectionError: Could not reach host. Are you offline?
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:35: ConnectionError
+__________ ERROR at setup of test_login_works_on_each_browser[edge] ___________
+
+self = <HTTPSConnection(host='msedgedriver.azureedge.net', port=443) at 0x22fd5872e90>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+>           sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+
+venv\Lib\site-packages\urllib3\connection.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\util\connection.py:60: in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+host = 'msedgedriver.azureedge.net', port = 443
+family = <AddressFamily.AF_UNSPEC: 0>, type = <SocketKind.SOCK_STREAM: 1>
+proto = 0, flags = 0
+
+    def getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
+        """Resolve host and port into list of address info entries.
+    
+        Translate the host/port argument into a sequence of 5-tuples that contain
+        all the necessary arguments for creating a socket connected to that service.
+        host is a domain name, a string representation of an IPv4/v6 address or
+        None. port is a string service name such as 'http', a numeric port number or
+        None. By passing None as the value of host and port, you can pass NULL to
+        the underlying C API.
+    
+        The family, type and proto arguments can be optionally specified in order to
+        narrow the list of addresses returned. Passing zero as a value for each of
+        these arguments selects the full range of results.
+        """
+        # We override this function since we want to translate the numeric family
+        # and socket type values to enum constants.
+        addrlist = []
+>       for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+E       socket.gaierror: [Errno 11001] getaddrinfo failed
+
+C:\Users\LOVELY\AppData\Local\Programs\Python\Python313\Lib\socket.py:977: gaierror
+
+The above exception was the direct cause of the following exception:
+
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD579F6F0>
+method = 'GET', url = '/LATEST_RELEASE_154_WINDOWS', body = None
+headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+redirect = False, assert_same_host = False
+timeout = Timeout(connect=None, read=None, total=None), pool_timeout = None
+release_conn = False, chunked = False, body_pos = None, preload_content = False
+decode_content = False, response_kw = {}, destination_scheme = None, conn = None
+release_this_conn = True, http_tunnel_required = False, err = None
+clean_exit = False
+
+    def urlopen(  # type: ignore[override]
+        self,
+        method: str,
+        url: str,
+        body: _TYPE_BODY | None = None,
+        headers: typing.Mapping[str, str] | None = None,
+        retries: Retry | bool | int | None = None,
+        redirect: bool = True,
+        assert_same_host: bool = True,
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        pool_timeout: int | None = None,
+        release_conn: bool | None = None,
+        chunked: bool = False,
+        body_pos: _TYPE_BODY_POSITION | None = None,
+        preload_content: bool = True,
+        decode_content: bool = True,
+        **response_kw: typing.Any,
+    ) -> BaseHTTPResponse:
+        """
+        Get a connection from the pool and perform an HTTP request. This is the
+        lowest level call for making a request, so you'll need to specify all
+        the raw details.
+    
+        .. note::
+    
+           More commonly, it's appropriate to use a convenience method
+           such as :meth:`request`.
+    
+        .. note::
+    
+           `release_conn` will only behave as expected if
+           `preload_content=False` because we want to make
+           `preload_content=False` the default behaviour someday soon without
+           breaking backwards compatibility.
+    
+        :param method:
+            HTTP request method (such as GET, POST, PUT, etc.)
+    
+        :param url:
+            The URL to perform the request on.
+    
+        :param body:
+            Data to send in the request body, either :class:`str`, :class:`bytes`,
+            an iterable of :class:`str`/:class:`bytes`, or a file-like object.
+    
+        :param headers:
+            Dictionary of custom headers to send, such as User-Agent,
+            If-None-Match, etc. If None, pool headers are used. If provided,
+            these headers completely replace any pool-specific headers.
+    
+        :param retries:
+            Configure the number of retries to allow before raising a
+            :class:`~urllib3.exceptions.MaxRetryError` exception.
+    
+            If ``None`` (default) will retry 3 times, see ``Retry.DEFAULT``. Pass a
+            :class:`~urllib3.util.retry.Retry` object for fine-grained control
+            over different types of retries.
+            Pass an integer number to retry connection errors that many times,
+            but no other types of errors. Pass zero to never retry.
+    
+            If ``False``, then retries are disabled and any exception is raised
+            immediately. Also, instead of raising a MaxRetryError on redirects,
+            the redirect response will be returned.
+    
+        :type retries: :class:`~urllib3.util.retry.Retry`, False, or an int.
+    
+        :param redirect:
+            If True, automatically handle redirects (status codes 301, 302,
+            303, 307, 308). Each redirect counts as a retry. Disabling retries
+            will disable redirect, too.
+    
+        :param assert_same_host:
+            If ``True``, will make sure that the host of the pool requests is
+            consistent else will raise HostChangedError. When ``False``, you can
+            use the pool on an HTTP proxy and request foreign hosts.
+    
+        :param timeout:
+            If specified, overrides the default timeout for this one
+            request. It may be a float (in seconds) or an instance of
+            :class:`urllib3.util.Timeout`.
+    
+        :param pool_timeout:
+            If set and the pool is set to block=True, then this method will
+            block for ``pool_timeout`` seconds and raise EmptyPoolError if no
+            connection is available within the time period.
+    
+        :param bool preload_content:
+            If True, the response's body will be preloaded into memory.
+    
+        :param bool decode_content:
+            If True, will attempt to decode the body based on the
+            'content-encoding' header.
+    
+        :param release_conn:
+            If False, then the urlopen call will not release the connection
+            back into the pool once a response is received (but will release if
+            you read the entire contents of the response such as when
+            `preload_content=True`). This is useful if you're not preloading
+            the response's content immediately. You will need to call
+            ``r.release_conn()`` on the response ``r`` to return the connection
+            back into the pool. If None, it takes the value of ``preload_content``
+            which defaults to ``True``.
+    
+        :param bool chunked:
+            If True, urllib3 will send the body using chunked transfer
+            encoding. Otherwise, urllib3 will send the body using the standard
+            content-length form. Defaults to False.
+    
+        :param int body_pos:
+            Position to seek to in file-like body in the event of a retry or
+            redirect. Typically this won't need to be set because urllib3 will
+            auto-populate the value when needed.
+        """
+        # Ensure that the URL we're connecting to is properly encoded
+        if url.startswith("/"):
+            # URLs starting with / are inherently schemeless.
+            url = to_str(_encode_target(url))
+            destination_scheme = None
+        else:
+            parsed_url = parse_url(url)
+            destination_scheme = parsed_url.scheme
+            url = to_str(parsed_url._replace(fragment=None).url)
+    
+        if headers is None:
+            headers = self.headers
+    
+        if not isinstance(retries, Retry):
+            retries = Retry.from_int(retries, redirect=redirect, default=self.retries)
+    
+        if release_conn is None:
+            release_conn = preload_content
+    
+        # Check host
+        if assert_same_host and not self.is_same_host(url):
+            raise HostChangedError(self, url, retries)
+    
+        conn = None
+    
+        # Track whether `conn` needs to be released before
+        # returning/raising/recursing. Update this variable if necessary, and
+        # leave `release_conn` constant throughout the function. That way, if
+        # the function recurses, the original value of `release_conn` will be
+        # passed down into the recursive call, and its value will be respected.
+        #
+        # See issue #651 [1] for details.
+        #
+        # [1] <https://github.com/urllib3/urllib3/issues/651>
+        release_this_conn = release_conn
+    
+        http_tunnel_required = connection_requires_http_tunnel(
+            self.proxy, self.proxy_config, destination_scheme
+        )
+    
+        # Merge the proxy headers. Only done when not using HTTP CONNECT. We
+        # have to copy the headers dict so we can safely change it without those
+        # changes being reflected in anyone else's copy.
+        if not http_tunnel_required:
+            headers = headers.copy()  # type: ignore[attr-defined]
+            headers.update(self.proxy_headers)  # type: ignore[union-attr]
+    
+        # Must keep the exception bound to a separate variable or else Python 3
+        # complains about UnboundLocalError.
+        err = None
+    
+        # Keep track of whether we cleanly exited the except block. This
+        # ensures we do proper cleanup in finally.
+        clean_exit = False
+    
+        # Rewind body position, if needed. Record current position
+        # for future rewinds in the event of a redirect/retry.
+        body_pos = set_file_position(body, body_pos)
+    
+        timeout_obj = self._get_timeout(timeout)
+        try:
+            # Request a connection from the queue.
+            conn = self._get_conn(timeout=pool_timeout)
+            conn.timeout = timeout_obj.connect_timeout  # type: ignore[assignment]
+    
+            # Is this a closed/new connection that requires CONNECT tunnelling?
+            if self.proxy is not None and http_tunnel_required and conn.is_closed:
+                try:
+                    self._prepare_proxy(conn)
+                except (BaseSSLError, OSError, SocketTimeout) as e:
+                    self._raise_timeout(
+                        err=e, url=self.proxy.url, timeout_value=conn.timeout
+                    )
+                    raise
+    
+            # If we're going to release the connection in ``finally:``, then
+            # the response doesn't need to know about the connection. Otherwise
+            # it will also try to release it and we'll have a double-release
+            # mess.
+            response_conn = conn if not release_conn else None
+    
+            # Make the request on the HTTPConnection object
+>           response = self._make_request(
+                conn,
+                method,
+                url,
+                timeout=timeout_obj,
+                body=body,
+                headers=headers,
+                chunked=chunked,
+                retries=retries,
+                response_conn=response_conn,
+                preload_content=preload_content,
+                decode_content=decode_content,
+                **response_kw,
+            )
+
+venv\Lib\site-packages\urllib3\connectionpool.py:793: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:494: in _make_request
+    raise new_e
+venv\Lib\site-packages\urllib3\connectionpool.py:470: in _make_request
+    self._validate_conn(conn)
+venv\Lib\site-packages\urllib3\connectionpool.py:1125: in _validate_conn
+    conn.connect()
+venv\Lib\site-packages\urllib3\connection.py:827: in connect
+    self.sock = sock = self._new_conn()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <HTTPSConnection(host='msedgedriver.azureedge.net', port=443) at 0x22fd5872e90>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+            sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+        except socket.gaierror as e:
+>           raise NameResolutionError(self.host, self, e) from e
+E           urllib3.exceptions.NameResolutionError: HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)
+
+venv\Lib\site-packages\urllib3\connection.py:246: NameResolutionError
+
+The above exception was the direct cause of the following exception:
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD5781950>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+>           resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+
+venv\Lib\site-packages\requests\adapters.py:667: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:847: in urlopen
+    retries = retries.increment(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+method = 'GET', url = '/LATEST_RELEASE_154_WINDOWS', response = None
+error = NameResolutionError("HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)")
+_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD579F6F0>
+_stacktrace = <traceback object at 0x0000022FD6FA7200>
+
+    def increment(
+        self,
+        method: str | None = None,
+        url: str | None = None,
+        response: BaseHTTPResponse | None = None,
+        error: Exception | None = None,
+        _pool: ConnectionPool | None = None,
+        _stacktrace: TracebackType | None = None,
+    ) -> Self:
+        """Return a new Retry object with incremented retry counters.
+    
+        :param response: A response object, or None, if the server did not
+            return a response.
+        :type response: :class:`~urllib3.response.BaseHTTPResponse`
+        :param Exception error: An error encountered during the request, or
+            None if the response was received successfully.
+    
+        :return: A new ``Retry`` object.
+        """
+        if self.total is False and error:
+            # Disabled, indicate to re-raise the error.
+            raise reraise(type(error), error, _stacktrace)
+    
+        total = self.total
+        if total is not None:
+            total -= 1
+    
+        connect = self.connect
+        read = self.read
+        redirect = self.redirect
+        status_count = self.status
+        other = self.other
+        cause = "unknown"
+        status = None
+        redirect_location = None
+    
+        if error and self._is_connection_error(error):
+            # Connect retry?
+            if connect is False:
+                raise reraise(type(error), error, _stacktrace)
+            elif connect is not None:
+                connect -= 1
+    
+        elif error and self._is_read_error(error):
+            # Read retry?
+            if read is False or method is None or not self._is_method_retryable(method):
+                raise reraise(type(error), error, _stacktrace)
+            elif read is not None:
+                read -= 1
+    
+        elif error:
+            # Other retry?
+            if other is not None:
+                other -= 1
+    
+        elif response and response.get_redirect_location():
+            # Redirect retry?
+            if redirect is not None:
+                redirect -= 1
+            cause = "too many redirects"
+            response_redirect_location = response.get_redirect_location()
+            if response_redirect_location:
+                redirect_location = response_redirect_location
+            status = response.status
+    
+        else:
+            # Incrementing because of a server error like a 500 in
+            # status_forcelist and the given method is in the allowed_methods
+            cause = ResponseError.GENERIC_ERROR
+            if response and response.status:
+                if status_count is not None:
+                    status_count -= 1
+                cause = ResponseError.SPECIFIC_ERROR.format(status_code=response.status)
+                status = response.status
+    
+        history = self.history + (
+            RequestHistory(method, url, error, status, redirect_location),
+        )
+    
+        new_retry = self.new(
+            total=total,
+            connect=connect,
+            read=read,
+            redirect=redirect,
+            status=status_count,
+            other=other,
+            history=history,
+        )
+    
+        if new_retry.is_exhausted():
+            reason = error or ResponseError(cause)
+>           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='msedgedriver.azureedge.net', port=443): Max retries exceeded with url: /LATEST_RELEASE_154_WINDOWS (Caused by NameResolutionError("HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)"))
+
+venv\Lib\site-packages\urllib3\util\retry.py:555: MaxRetryError
+
+During handling of the above exception, another exception occurred:
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD579FA80>
+url = 'https://msedgedriver.azureedge.net/LATEST_RELEASE_154_WINDOWS'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+>           resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\requests\api.py:73: in get
+    return request("get", url, params=params, **kwargs)
+venv\Lib\site-packages\requests\api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+venv\Lib\site-packages\requests\sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+venv\Lib\site-packages\requests\sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD5781950>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+            resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+    
+        except (ProtocolError, OSError) as err:
+            raise ConnectionError(err, request=request)
+    
+        except MaxRetryError as e:
+            if isinstance(e.reason, ConnectTimeoutError):
+                # TODO: Remove this in 3.0.0: see #2811
+                if not isinstance(e.reason, NewConnectionError):
+                    raise ConnectTimeout(e, request=request)
+    
+            if isinstance(e.reason, ResponseError):
+                raise RetryError(e, request=request)
+    
+            if isinstance(e.reason, _ProxyError):
+                raise ProxyError(e, request=request)
+    
+            if isinstance(e.reason, _SSLError):
+                # This branch is for urllib3 v1.22 and later.
+                raise SSLError(e, request=request)
+    
+>           raise ConnectionError(e, request=request)
+E           requests.exceptions.ConnectionError: HTTPSConnectionPool(host='msedgedriver.azureedge.net', port=443): Max retries exceeded with url: /LATEST_RELEASE_154_WINDOWS (Caused by NameResolutionError("HTTPSConnection(host='msedgedriver.azureedge.net', port=443): Failed to resolve 'msedgedriver.azureedge.net' ([Errno 11001] getaddrinfo failed)"))
+
+venv\Lib\site-packages\requests\adapters.py:700: ConnectionError
+
+During handling of the above exception, another exception occurred:
+
+request = <SubRequest 'cross_browser_driver' for <Function test_login_works_on_each_browser[edge]>>
+
+    @pytest.fixture
+    def cross_browser_driver(request):
+>       drv = build_driver(request.param)
+
+tests\test_cross_browser.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\test_helpers.py:47: in build_driver
+    service = EdgeService(EdgeChromiumDriverManager().install())
+venv\Lib\site-packages\webdriver_manager\microsoft.py:73: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+venv\Lib\site-packages\webdriver_manager\core\manager.py:35: in _get_driver_binary_path
+    binary_path = self._cache_manager.find_driver(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:107: in find_driver
+    driver_version = self.get_cache_key_driver_version(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:154: in get_cache_key_driver_version
+    return driver.get_driver_version_to_download()
+venv\Lib\site-packages\webdriver_manager\core\driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+venv\Lib\site-packages\webdriver_manager\drivers\edge.py:51: in get_latest_release_version
+    resp = self._http_client.get(url=latest_release_url)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD579FA80>
+url = 'https://msedgedriver.azureedge.net/LATEST_RELEASE_154_WINDOWS'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+            resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+        except exceptions.ConnectionError:
+>           raise exceptions.ConnectionError(f"Could not reach host. Are you offline?")
+E           requests.exceptions.ConnectionError: Could not reach host. Are you offline?
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:35: ConnectionError
+_ ERROR at setup of test_jobs_page_renders_without_horizontal_overflow[desktop] _
+
+self = <HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+>           sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+
+venv\Lib\site-packages\urllib3\connection.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\util\connection.py:85: in create_connection
+    raise err
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+address = ('googlechromelabs.github.io', 443), timeout = None
+source_address = None, socket_options = [(6, 1, 1)]
+
+    def create_connection(
+        address: tuple[str, int],
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        source_address: tuple[str, int] | None = None,
+        socket_options: _TYPE_SOCKET_OPTIONS | None = None,
+    ) -> socket.socket:
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`socket.getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        An host of '' or port 0 tells the OS to use the default.
+        """
+    
+        host, port = address
+        if host.startswith("["):
+            host = host.strip("[]")
+        err = None
+    
+        # Using the value from allowed_gai_family() in the context of getaddrinfo lets
+        # us select whether to work with IPv4 DNS records, IPv6 records, or both.
+        # The original create_connection function always returns all records.
+        family = allowed_gai_family()
+    
+        try:
+            host.encode("idna")
+        except UnicodeError:
+            raise LocationParseError(f"'{host}', label empty or too long") from None
+    
+        for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket.socket(af, socktype, proto)
+    
+                # If provided, set socket level options before connecting.
+                _set_socket_options(sock, socket_options)
+    
+                if timeout is not _DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+>               sock.connect(sa)
+E               TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+venv\Lib\site-packages\urllib3\util\connection.py:73: TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD5CC76F0>
+method = 'GET', url = '/chrome-for-testing/latest-patch-versions-per-build.json'
+body = None
+headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+redirect = False, assert_same_host = False
+timeout = Timeout(connect=None, read=None, total=None), pool_timeout = None
+release_conn = False, chunked = False, body_pos = None, preload_content = False
+decode_content = False, response_kw = {}, destination_scheme = None, conn = None
+release_this_conn = True, http_tunnel_required = False, err = None
+clean_exit = False
+
+    def urlopen(  # type: ignore[override]
+        self,
+        method: str,
+        url: str,
+        body: _TYPE_BODY | None = None,
+        headers: typing.Mapping[str, str] | None = None,
+        retries: Retry | bool | int | None = None,
+        redirect: bool = True,
+        assert_same_host: bool = True,
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        pool_timeout: int | None = None,
+        release_conn: bool | None = None,
+        chunked: bool = False,
+        body_pos: _TYPE_BODY_POSITION | None = None,
+        preload_content: bool = True,
+        decode_content: bool = True,
+        **response_kw: typing.Any,
+    ) -> BaseHTTPResponse:
+        """
+        Get a connection from the pool and perform an HTTP request. This is the
+        lowest level call for making a request, so you'll need to specify all
+        the raw details.
+    
+        .. note::
+    
+           More commonly, it's appropriate to use a convenience method
+           such as :meth:`request`.
+    
+        .. note::
+    
+           `release_conn` will only behave as expected if
+           `preload_content=False` because we want to make
+           `preload_content=False` the default behaviour someday soon without
+           breaking backwards compatibility.
+    
+        :param method:
+            HTTP request method (such as GET, POST, PUT, etc.)
+    
+        :param url:
+            The URL to perform the request on.
+    
+        :param body:
+            Data to send in the request body, either :class:`str`, :class:`bytes`,
+            an iterable of :class:`str`/:class:`bytes`, or a file-like object.
+    
+        :param headers:
+            Dictionary of custom headers to send, such as User-Agent,
+            If-None-Match, etc. If None, pool headers are used. If provided,
+            these headers completely replace any pool-specific headers.
+    
+        :param retries:
+            Configure the number of retries to allow before raising a
+            :class:`~urllib3.exceptions.MaxRetryError` exception.
+    
+            If ``None`` (default) will retry 3 times, see ``Retry.DEFAULT``. Pass a
+            :class:`~urllib3.util.retry.Retry` object for fine-grained control
+            over different types of retries.
+            Pass an integer number to retry connection errors that many times,
+            but no other types of errors. Pass zero to never retry.
+    
+            If ``False``, then retries are disabled and any exception is raised
+            immediately. Also, instead of raising a MaxRetryError on redirects,
+            the redirect response will be returned.
+    
+        :type retries: :class:`~urllib3.util.retry.Retry`, False, or an int.
+    
+        :param redirect:
+            If True, automatically handle redirects (status codes 301, 302,
+            303, 307, 308). Each redirect counts as a retry. Disabling retries
+            will disable redirect, too.
+    
+        :param assert_same_host:
+            If ``True``, will make sure that the host of the pool requests is
+            consistent else will raise HostChangedError. When ``False``, you can
+            use the pool on an HTTP proxy and request foreign hosts.
+    
+        :param timeout:
+            If specified, overrides the default timeout for this one
+            request. It may be a float (in seconds) or an instance of
+            :class:`urllib3.util.Timeout`.
+    
+        :param pool_timeout:
+            If set and the pool is set to block=True, then this method will
+            block for ``pool_timeout`` seconds and raise EmptyPoolError if no
+            connection is available within the time period.
+    
+        :param bool preload_content:
+            If True, the response's body will be preloaded into memory.
+    
+        :param bool decode_content:
+            If True, will attempt to decode the body based on the
+            'content-encoding' header.
+    
+        :param release_conn:
+            If False, then the urlopen call will not release the connection
+            back into the pool once a response is received (but will release if
+            you read the entire contents of the response such as when
+            `preload_content=True`). This is useful if you're not preloading
+            the response's content immediately. You will need to call
+            ``r.release_conn()`` on the response ``r`` to return the connection
+            back into the pool. If None, it takes the value of ``preload_content``
+            which defaults to ``True``.
+    
+        :param bool chunked:
+            If True, urllib3 will send the body using chunked transfer
+            encoding. Otherwise, urllib3 will send the body using the standard
+            content-length form. Defaults to False.
+    
+        :param int body_pos:
+            Position to seek to in file-like body in the event of a retry or
+            redirect. Typically this won't need to be set because urllib3 will
+            auto-populate the value when needed.
+        """
+        # Ensure that the URL we're connecting to is properly encoded
+        if url.startswith("/"):
+            # URLs starting with / are inherently schemeless.
+            url = to_str(_encode_target(url))
+            destination_scheme = None
+        else:
+            parsed_url = parse_url(url)
+            destination_scheme = parsed_url.scheme
+            url = to_str(parsed_url._replace(fragment=None).url)
+    
+        if headers is None:
+            headers = self.headers
+    
+        if not isinstance(retries, Retry):
+            retries = Retry.from_int(retries, redirect=redirect, default=self.retries)
+    
+        if release_conn is None:
+            release_conn = preload_content
+    
+        # Check host
+        if assert_same_host and not self.is_same_host(url):
+            raise HostChangedError(self, url, retries)
+    
+        conn = None
+    
+        # Track whether `conn` needs to be released before
+        # returning/raising/recursing. Update this variable if necessary, and
+        # leave `release_conn` constant throughout the function. That way, if
+        # the function recurses, the original value of `release_conn` will be
+        # passed down into the recursive call, and its value will be respected.
+        #
+        # See issue #651 [1] for details.
+        #
+        # [1] <https://github.com/urllib3/urllib3/issues/651>
+        release_this_conn = release_conn
+    
+        http_tunnel_required = connection_requires_http_tunnel(
+            self.proxy, self.proxy_config, destination_scheme
+        )
+    
+        # Merge the proxy headers. Only done when not using HTTP CONNECT. We
+        # have to copy the headers dict so we can safely change it without those
+        # changes being reflected in anyone else's copy.
+        if not http_tunnel_required:
+            headers = headers.copy()  # type: ignore[attr-defined]
+            headers.update(self.proxy_headers)  # type: ignore[union-attr]
+    
+        # Must keep the exception bound to a separate variable or else Python 3
+        # complains about UnboundLocalError.
+        err = None
+    
+        # Keep track of whether we cleanly exited the except block. This
+        # ensures we do proper cleanup in finally.
+        clean_exit = False
+    
+        # Rewind body position, if needed. Record current position
+        # for future rewinds in the event of a redirect/retry.
+        body_pos = set_file_position(body, body_pos)
+    
+        timeout_obj = self._get_timeout(timeout)
+        try:
+            # Request a connection from the queue.
+            conn = self._get_conn(timeout=pool_timeout)
+            conn.timeout = timeout_obj.connect_timeout  # type: ignore[assignment]
+    
+            # Is this a closed/new connection that requires CONNECT tunnelling?
+            if self.proxy is not None and http_tunnel_required and conn.is_closed:
+                try:
+                    self._prepare_proxy(conn)
+                except (BaseSSLError, OSError, SocketTimeout) as e:
+                    self._raise_timeout(
+                        err=e, url=self.proxy.url, timeout_value=conn.timeout
+                    )
+                    raise
+    
+            # If we're going to release the connection in ``finally:``, then
+            # the response doesn't need to know about the connection. Otherwise
+            # it will also try to release it and we'll have a double-release
+            # mess.
+            response_conn = conn if not release_conn else None
+    
+            # Make the request on the HTTPConnection object
+>           response = self._make_request(
+                conn,
+                method,
+                url,
+                timeout=timeout_obj,
+                body=body,
+                headers=headers,
+                chunked=chunked,
+                retries=retries,
+                response_conn=response_conn,
+                preload_content=preload_content,
+                decode_content=decode_content,
+                **response_kw,
+            )
+
+venv\Lib\site-packages\urllib3\connectionpool.py:793: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:494: in _make_request
+    raise new_e
+venv\Lib\site-packages\urllib3\connectionpool.py:470: in _make_request
+    self._validate_conn(conn)
+venv\Lib\site-packages\urllib3\connectionpool.py:1125: in _validate_conn
+    conn.connect()
+venv\Lib\site-packages\urllib3\connection.py:827: in connect
+    self.sock = sock = self._new_conn()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+            sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+        except socket.gaierror as e:
+            raise NameResolutionError(self.host, self, e) from e
+        except SocketTimeout as e:
+>           raise ConnectTimeoutError(
+                self,
+                f"Connection to {self.host} timed out. (connect timeout={self.timeout})",
+            ) from e
+E           urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)')
+
+venv\Lib\site-packages\urllib3\connection.py:248: ConnectTimeoutError
+
+The above exception was the direct cause of the following exception:
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD6F765D0>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+>           resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+
+venv\Lib\site-packages\requests\adapters.py:667: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:847: in urlopen
+    retries = retries.increment(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+method = 'GET', url = '/chrome-for-testing/latest-patch-versions-per-build.json'
+response = None
+error = ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)')
+_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD5CC76F0>
+_stacktrace = <traceback object at 0x0000022FD7197140>
+
+    def increment(
+        self,
+        method: str | None = None,
+        url: str | None = None,
+        response: BaseHTTPResponse | None = None,
+        error: Exception | None = None,
+        _pool: ConnectionPool | None = None,
+        _stacktrace: TracebackType | None = None,
+    ) -> Self:
+        """Return a new Retry object with incremented retry counters.
+    
+        :param response: A response object, or None, if the server did not
+            return a response.
+        :type response: :class:`~urllib3.response.BaseHTTPResponse`
+        :param Exception error: An error encountered during the request, or
+            None if the response was received successfully.
+    
+        :return: A new ``Retry`` object.
+        """
+        if self.total is False and error:
+            # Disabled, indicate to re-raise the error.
+            raise reraise(type(error), error, _stacktrace)
+    
+        total = self.total
+        if total is not None:
+            total -= 1
+    
+        connect = self.connect
+        read = self.read
+        redirect = self.redirect
+        status_count = self.status
+        other = self.other
+        cause = "unknown"
+        status = None
+        redirect_location = None
+    
+        if error and self._is_connection_error(error):
+            # Connect retry?
+            if connect is False:
+                raise reraise(type(error), error, _stacktrace)
+            elif connect is not None:
+                connect -= 1
+    
+        elif error and self._is_read_error(error):
+            # Read retry?
+            if read is False or method is None or not self._is_method_retryable(method):
+                raise reraise(type(error), error, _stacktrace)
+            elif read is not None:
+                read -= 1
+    
+        elif error:
+            # Other retry?
+            if other is not None:
+                other -= 1
+    
+        elif response and response.get_redirect_location():
+            # Redirect retry?
+            if redirect is not None:
+                redirect -= 1
+            cause = "too many redirects"
+            response_redirect_location = response.get_redirect_location()
+            if response_redirect_location:
+                redirect_location = response_redirect_location
+            status = response.status
+    
+        else:
+            # Incrementing because of a server error like a 500 in
+            # status_forcelist and the given method is in the allowed_methods
+            cause = ResponseError.GENERIC_ERROR
+            if response and response.status:
+                if status_count is not None:
+                    status_count -= 1
+                cause = ResponseError.SPECIFIC_ERROR.format(status_code=response.status)
+                status = response.status
+    
+        history = self.history + (
+            RequestHistory(method, url, error, status, redirect_location),
+        )
+    
+        new_retry = self.new(
+            total=total,
+            connect=connect,
+            read=read,
+            redirect=redirect,
+            status=status_count,
+            other=other,
+            history=history,
+        )
+    
+        if new_retry.is_exhausted():
+            reason = error or ResponseError(cause)
+>           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='googlechromelabs.github.io', port=443): Max retries exceeded with url: /chrome-for-testing/latest-patch-versions-per-build.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)'))
+
+venv\Lib\site-packages\urllib3\util\retry.py:555: MaxRetryError
+
+During handling of the above exception, another exception occurred:
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD5CDBAC0>
+url = 'https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+>           resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\requests\api.py:73: in get
+    return request("get", url, params=params, **kwargs)
+venv\Lib\site-packages\requests\api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+venv\Lib\site-packages\requests\sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+venv\Lib\site-packages\requests\sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD6F765D0>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+            resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+    
+        except (ProtocolError, OSError) as err:
+            raise ConnectionError(err, request=request)
+    
+        except MaxRetryError as e:
+            if isinstance(e.reason, ConnectTimeoutError):
+                # TODO: Remove this in 3.0.0: see #2811
+                if not isinstance(e.reason, NewConnectionError):
+>                   raise ConnectTimeout(e, request=request)
+E                   requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='googlechromelabs.github.io', port=443): Max retries exceeded with url: /chrome-for-testing/latest-patch-versions-per-build.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)'))
+
+venv\Lib\site-packages\requests\adapters.py:688: ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+    @pytest.fixture
+    def driver():
+>       drv = build_driver(BROWSER)
+
+conftest.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\test_helpers.py:39: in build_driver
+    service = ChromeService(ChromeDriverManager().install())
+venv\Lib\site-packages\webdriver_manager\chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+venv\Lib\site-packages\webdriver_manager\core\manager.py:35: in _get_driver_binary_path
+    binary_path = self._cache_manager.find_driver(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:107: in find_driver
+    driver_version = self.get_cache_key_driver_version(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:154: in get_cache_key_driver_version
+    return driver.get_driver_version_to_download()
+venv\Lib\site-packages\webdriver_manager\core\driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+venv\Lib\site-packages\webdriver_manager\drivers\chrome.py:59: in get_latest_release_version
+    response = self._http_client.get(url)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD5CDBAC0>
+url = 'https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+            resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+        except exceptions.ConnectionError:
+>           raise exceptions.ConnectionError(f"Could not reach host. Are you offline?")
+E           requests.exceptions.ConnectionError: Could not reach host. Are you offline?
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:35: ConnectionError
+_ ERROR at setup of TestRegistration.test_registration_rejects_weak_password[ab] _
+
+self = <HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd6fd0cd0>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+>           sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+
+venv\Lib\site-packages\urllib3\connection.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\util\connection.py:85: in create_connection
+    raise err
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+address = ('googlechromelabs.github.io', 443), timeout = None
+source_address = None, socket_options = [(6, 1, 1)]
+
+    def create_connection(
+        address: tuple[str, int],
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        source_address: tuple[str, int] | None = None,
+        socket_options: _TYPE_SOCKET_OPTIONS | None = None,
+    ) -> socket.socket:
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`socket.getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        An host of '' or port 0 tells the OS to use the default.
+        """
+    
+        host, port = address
+        if host.startswith("["):
+            host = host.strip("[]")
+        err = None
+    
+        # Using the value from allowed_gai_family() in the context of getaddrinfo lets
+        # us select whether to work with IPv4 DNS records, IPv6 records, or both.
+        # The original create_connection function always returns all records.
+        family = allowed_gai_family()
+    
+        try:
+            host.encode("idna")
+        except UnicodeError:
+            raise LocationParseError(f"'{host}', label empty or too long") from None
+    
+        for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket.socket(af, socktype, proto)
+    
+                # If provided, set socket level options before connecting.
+                _set_socket_options(sock, socket_options)
+    
+                if timeout is not _DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+>               sock.connect(sa)
+E               TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+venv\Lib\site-packages\urllib3\util\connection.py:73: TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD5CC7BB0>
+method = 'GET', url = '/chrome-for-testing/latest-patch-versions-per-build.json'
+body = None
+headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+redirect = False, assert_same_host = False
+timeout = Timeout(connect=None, read=None, total=None), pool_timeout = None
+release_conn = False, chunked = False, body_pos = None, preload_content = False
+decode_content = False, response_kw = {}, destination_scheme = None, conn = None
+release_this_conn = True, http_tunnel_required = False, err = None
+clean_exit = False
+
+    def urlopen(  # type: ignore[override]
+        self,
+        method: str,
+        url: str,
+        body: _TYPE_BODY | None = None,
+        headers: typing.Mapping[str, str] | None = None,
+        retries: Retry | bool | int | None = None,
+        redirect: bool = True,
+        assert_same_host: bool = True,
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        pool_timeout: int | None = None,
+        release_conn: bool | None = None,
+        chunked: bool = False,
+        body_pos: _TYPE_BODY_POSITION | None = None,
+        preload_content: bool = True,
+        decode_content: bool = True,
+        **response_kw: typing.Any,
+    ) -> BaseHTTPResponse:
+        """
+        Get a connection from the pool and perform an HTTP request. This is the
+        lowest level call for making a request, so you'll need to specify all
+        the raw details.
+    
+        .. note::
+    
+           More commonly, it's appropriate to use a convenience method
+           such as :meth:`request`.
+    
+        .. note::
+    
+           `release_conn` will only behave as expected if
+           `preload_content=False` because we want to make
+           `preload_content=False` the default behaviour someday soon without
+           breaking backwards compatibility.
+    
+        :param method:
+            HTTP request method (such as GET, POST, PUT, etc.)
+    
+        :param url:
+            The URL to perform the request on.
+    
+        :param body:
+            Data to send in the request body, either :class:`str`, :class:`bytes`,
+            an iterable of :class:`str`/:class:`bytes`, or a file-like object.
+    
+        :param headers:
+            Dictionary of custom headers to send, such as User-Agent,
+            If-None-Match, etc. If None, pool headers are used. If provided,
+            these headers completely replace any pool-specific headers.
+    
+        :param retries:
+            Configure the number of retries to allow before raising a
+            :class:`~urllib3.exceptions.MaxRetryError` exception.
+    
+            If ``None`` (default) will retry 3 times, see ``Retry.DEFAULT``. Pass a
+            :class:`~urllib3.util.retry.Retry` object for fine-grained control
+            over different types of retries.
+            Pass an integer number to retry connection errors that many times,
+            but no other types of errors. Pass zero to never retry.
+    
+            If ``False``, then retries are disabled and any exception is raised
+            immediately. Also, instead of raising a MaxRetryError on redirects,
+            the redirect response will be returned.
+    
+        :type retries: :class:`~urllib3.util.retry.Retry`, False, or an int.
+    
+        :param redirect:
+            If True, automatically handle redirects (status codes 301, 302,
+            303, 307, 308). Each redirect counts as a retry. Disabling retries
+            will disable redirect, too.
+    
+        :param assert_same_host:
+            If ``True``, will make sure that the host of the pool requests is
+            consistent else will raise HostChangedError. When ``False``, you can
+            use the pool on an HTTP proxy and request foreign hosts.
+    
+        :param timeout:
+            If specified, overrides the default timeout for this one
+            request. It may be a float (in seconds) or an instance of
+            :class:`urllib3.util.Timeout`.
+    
+        :param pool_timeout:
+            If set and the pool is set to block=True, then this method will
+            block for ``pool_timeout`` seconds and raise EmptyPoolError if no
+            connection is available within the time period.
+    
+        :param bool preload_content:
+            If True, the response's body will be preloaded into memory.
+    
+        :param bool decode_content:
+            If True, will attempt to decode the body based on the
+            'content-encoding' header.
+    
+        :param release_conn:
+            If False, then the urlopen call will not release the connection
+            back into the pool once a response is received (but will release if
+            you read the entire contents of the response such as when
+            `preload_content=True`). This is useful if you're not preloading
+            the response's content immediately. You will need to call
+            ``r.release_conn()`` on the response ``r`` to return the connection
+            back into the pool. If None, it takes the value of ``preload_content``
+            which defaults to ``True``.
+    
+        :param bool chunked:
+            If True, urllib3 will send the body using chunked transfer
+            encoding. Otherwise, urllib3 will send the body using the standard
+            content-length form. Defaults to False.
+    
+        :param int body_pos:
+            Position to seek to in file-like body in the event of a retry or
+            redirect. Typically this won't need to be set because urllib3 will
+            auto-populate the value when needed.
+        """
+        # Ensure that the URL we're connecting to is properly encoded
+        if url.startswith("/"):
+            # URLs starting with / are inherently schemeless.
+            url = to_str(_encode_target(url))
+            destination_scheme = None
+        else:
+            parsed_url = parse_url(url)
+            destination_scheme = parsed_url.scheme
+            url = to_str(parsed_url._replace(fragment=None).url)
+    
+        if headers is None:
+            headers = self.headers
+    
+        if not isinstance(retries, Retry):
+            retries = Retry.from_int(retries, redirect=redirect, default=self.retries)
+    
+        if release_conn is None:
+            release_conn = preload_content
+    
+        # Check host
+        if assert_same_host and not self.is_same_host(url):
+            raise HostChangedError(self, url, retries)
+    
+        conn = None
+    
+        # Track whether `conn` needs to be released before
+        # returning/raising/recursing. Update this variable if necessary, and
+        # leave `release_conn` constant throughout the function. That way, if
+        # the function recurses, the original value of `release_conn` will be
+        # passed down into the recursive call, and its value will be respected.
+        #
+        # See issue #651 [1] for details.
+        #
+        # [1] <https://github.com/urllib3/urllib3/issues/651>
+        release_this_conn = release_conn
+    
+        http_tunnel_required = connection_requires_http_tunnel(
+            self.proxy, self.proxy_config, destination_scheme
+        )
+    
+        # Merge the proxy headers. Only done when not using HTTP CONNECT. We
+        # have to copy the headers dict so we can safely change it without those
+        # changes being reflected in anyone else's copy.
+        if not http_tunnel_required:
+            headers = headers.copy()  # type: ignore[attr-defined]
+            headers.update(self.proxy_headers)  # type: ignore[union-attr]
+    
+        # Must keep the exception bound to a separate variable or else Python 3
+        # complains about UnboundLocalError.
+        err = None
+    
+        # Keep track of whether we cleanly exited the except block. This
+        # ensures we do proper cleanup in finally.
+        clean_exit = False
+    
+        # Rewind body position, if needed. Record current position
+        # for future rewinds in the event of a redirect/retry.
+        body_pos = set_file_position(body, body_pos)
+    
+        timeout_obj = self._get_timeout(timeout)
+        try:
+            # Request a connection from the queue.
+            conn = self._get_conn(timeout=pool_timeout)
+            conn.timeout = timeout_obj.connect_timeout  # type: ignore[assignment]
+    
+            # Is this a closed/new connection that requires CONNECT tunnelling?
+            if self.proxy is not None and http_tunnel_required and conn.is_closed:
+                try:
+                    self._prepare_proxy(conn)
+                except (BaseSSLError, OSError, SocketTimeout) as e:
+                    self._raise_timeout(
+                        err=e, url=self.proxy.url, timeout_value=conn.timeout
+                    )
+                    raise
+    
+            # If we're going to release the connection in ``finally:``, then
+            # the response doesn't need to know about the connection. Otherwise
+            # it will also try to release it and we'll have a double-release
+            # mess.
+            response_conn = conn if not release_conn else None
+    
+            # Make the request on the HTTPConnection object
+>           response = self._make_request(
+                conn,
+                method,
+                url,
+                timeout=timeout_obj,
+                body=body,
+                headers=headers,
+                chunked=chunked,
+                retries=retries,
+                response_conn=response_conn,
+                preload_content=preload_content,
+                decode_content=decode_content,
+                **response_kw,
+            )
+
+venv\Lib\site-packages\urllib3\connectionpool.py:793: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:494: in _make_request
+    raise new_e
+venv\Lib\site-packages\urllib3\connectionpool.py:470: in _make_request
+    self._validate_conn(conn)
+venv\Lib\site-packages\urllib3\connectionpool.py:1125: in _validate_conn
+    conn.connect()
+venv\Lib\site-packages\urllib3\connection.py:827: in connect
+    self.sock = sock = self._new_conn()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd6fd0cd0>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+            sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+        except socket.gaierror as e:
+            raise NameResolutionError(self.host, self, e) from e
+        except SocketTimeout as e:
+>           raise ConnectTimeoutError(
+                self,
+                f"Connection to {self.host} timed out. (connect timeout={self.timeout})",
+            ) from e
+E           urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd6fd0cd0>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)')
+
+venv\Lib\site-packages\urllib3\connection.py:248: ConnectTimeoutError
+
+The above exception was the direct cause of the following exception:
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD711FA50>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+>           resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+
+venv\Lib\site-packages\requests\adapters.py:667: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:847: in urlopen
+    retries = retries.increment(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+method = 'GET', url = '/chrome-for-testing/latest-patch-versions-per-build.json'
+response = None
+error = ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd6fd0cd0>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)')
+_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD5CC7BB0>
+_stacktrace = <traceback object at 0x0000022FD7595680>
+
+    def increment(
+        self,
+        method: str | None = None,
+        url: str | None = None,
+        response: BaseHTTPResponse | None = None,
+        error: Exception | None = None,
+        _pool: ConnectionPool | None = None,
+        _stacktrace: TracebackType | None = None,
+    ) -> Self:
+        """Return a new Retry object with incremented retry counters.
+    
+        :param response: A response object, or None, if the server did not
+            return a response.
+        :type response: :class:`~urllib3.response.BaseHTTPResponse`
+        :param Exception error: An error encountered during the request, or
+            None if the response was received successfully.
+    
+        :return: A new ``Retry`` object.
+        """
+        if self.total is False and error:
+            # Disabled, indicate to re-raise the error.
+            raise reraise(type(error), error, _stacktrace)
+    
+        total = self.total
+        if total is not None:
+            total -= 1
+    
+        connect = self.connect
+        read = self.read
+        redirect = self.redirect
+        status_count = self.status
+        other = self.other
+        cause = "unknown"
+        status = None
+        redirect_location = None
+    
+        if error and self._is_connection_error(error):
+            # Connect retry?
+            if connect is False:
+                raise reraise(type(error), error, _stacktrace)
+            elif connect is not None:
+                connect -= 1
+    
+        elif error and self._is_read_error(error):
+            # Read retry?
+            if read is False or method is None or not self._is_method_retryable(method):
+                raise reraise(type(error), error, _stacktrace)
+            elif read is not None:
+                read -= 1
+    
+        elif error:
+            # Other retry?
+            if other is not None:
+                other -= 1
+    
+        elif response and response.get_redirect_location():
+            # Redirect retry?
+            if redirect is not None:
+                redirect -= 1
+            cause = "too many redirects"
+            response_redirect_location = response.get_redirect_location()
+            if response_redirect_location:
+                redirect_location = response_redirect_location
+            status = response.status
+    
+        else:
+            # Incrementing because of a server error like a 500 in
+            # status_forcelist and the given method is in the allowed_methods
+            cause = ResponseError.GENERIC_ERROR
+            if response and response.status:
+                if status_count is not None:
+                    status_count -= 1
+                cause = ResponseError.SPECIFIC_ERROR.format(status_code=response.status)
+                status = response.status
+    
+        history = self.history + (
+            RequestHistory(method, url, error, status, redirect_location),
+        )
+    
+        new_retry = self.new(
+            total=total,
+            connect=connect,
+            read=read,
+            redirect=redirect,
+            status=status_count,
+            other=other,
+            history=history,
+        )
+    
+        if new_retry.is_exhausted():
+            reason = error or ResponseError(cause)
+>           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='googlechromelabs.github.io', port=443): Max retries exceeded with url: /chrome-for-testing/latest-patch-versions-per-build.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd6fd0cd0>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)'))
+
+venv\Lib\site-packages\urllib3\util\retry.py:555: MaxRetryError
+
+During handling of the above exception, another exception occurred:
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD70C9EF0>
+url = 'https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+>           resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\requests\api.py:73: in get
+    return request("get", url, params=params, **kwargs)
+venv\Lib\site-packages\requests\api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+venv\Lib\site-packages\requests\sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+venv\Lib\site-packages\requests\sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD711FA50>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+            resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+    
+        except (ProtocolError, OSError) as err:
+            raise ConnectionError(err, request=request)
+    
+        except MaxRetryError as e:
+            if isinstance(e.reason, ConnectTimeoutError):
+                # TODO: Remove this in 3.0.0: see #2811
+                if not isinstance(e.reason, NewConnectionError):
+>                   raise ConnectTimeout(e, request=request)
+E                   requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='googlechromelabs.github.io', port=443): Max retries exceeded with url: /chrome-for-testing/latest-patch-versions-per-build.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd6fd0cd0>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)'))
+
+venv\Lib\site-packages\requests\adapters.py:688: ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+    @pytest.fixture
+    def driver():
+>       drv = build_driver(BROWSER)
+
+conftest.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\test_helpers.py:39: in build_driver
+    service = ChromeService(ChromeDriverManager().install())
+venv\Lib\site-packages\webdriver_manager\chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+venv\Lib\site-packages\webdriver_manager\core\manager.py:35: in _get_driver_binary_path
+    binary_path = self._cache_manager.find_driver(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:107: in find_driver
+    driver_version = self.get_cache_key_driver_version(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:154: in get_cache_key_driver_version
+    return driver.get_driver_version_to_download()
+venv\Lib\site-packages\webdriver_manager\core\driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+venv\Lib\site-packages\webdriver_manager\drivers\chrome.py:59: in get_latest_release_version
+    response = self._http_client.get(url)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD70C9EF0>
+url = 'https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+            resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+        except exceptions.ConnectionError:
+>           raise exceptions.ConnectionError(f"Could not reach host. Are you offline?")
+E           requests.exceptions.ConnectionError: Could not reach host. Are you offline?
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:35: ConnectionError
+_ ERROR at setup of TestJobApplications.test_duplicate_application_is_prevented _
+
+self = <HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+>           sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+
+venv\Lib\site-packages\urllib3\connection.py:239: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\util\connection.py:85: in create_connection
+    raise err
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+address = ('googlechromelabs.github.io', 443), timeout = None
+source_address = None, socket_options = [(6, 1, 1)]
+
+    def create_connection(
+        address: tuple[str, int],
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        source_address: tuple[str, int] | None = None,
+        socket_options: _TYPE_SOCKET_OPTIONS | None = None,
+    ) -> socket.socket:
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`socket.getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        An host of '' or port 0 tells the OS to use the default.
+        """
+    
+        host, port = address
+        if host.startswith("["):
+            host = host.strip("[]")
+        err = None
+    
+        # Using the value from allowed_gai_family() in the context of getaddrinfo lets
+        # us select whether to work with IPv4 DNS records, IPv6 records, or both.
+        # The original create_connection function always returns all records.
+        family = allowed_gai_family()
+    
+        try:
+            host.encode("idna")
+        except UnicodeError:
+            raise LocationParseError(f"'{host}', label empty or too long") from None
+    
+        for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket.socket(af, socktype, proto)
+    
+                # If provided, set socket level options before connecting.
+                _set_socket_options(sock, socket_options)
+    
+                if timeout is not _DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+>               sock.connect(sa)
+E               TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+venv\Lib\site-packages\urllib3\util\connection.py:73: TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+self = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD5CC7820>
+method = 'GET', url = '/chrome-for-testing/latest-patch-versions-per-build.json'
+body = None
+headers = {'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+retries = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+redirect = False, assert_same_host = False
+timeout = Timeout(connect=None, read=None, total=None), pool_timeout = None
+release_conn = False, chunked = False, body_pos = None, preload_content = False
+decode_content = False, response_kw = {}, destination_scheme = None, conn = None
+release_this_conn = True, http_tunnel_required = False, err = None
+clean_exit = False
+
+    def urlopen(  # type: ignore[override]
+        self,
+        method: str,
+        url: str,
+        body: _TYPE_BODY | None = None,
+        headers: typing.Mapping[str, str] | None = None,
+        retries: Retry | bool | int | None = None,
+        redirect: bool = True,
+        assert_same_host: bool = True,
+        timeout: _TYPE_TIMEOUT = _DEFAULT_TIMEOUT,
+        pool_timeout: int | None = None,
+        release_conn: bool | None = None,
+        chunked: bool = False,
+        body_pos: _TYPE_BODY_POSITION | None = None,
+        preload_content: bool = True,
+        decode_content: bool = True,
+        **response_kw: typing.Any,
+    ) -> BaseHTTPResponse:
+        """
+        Get a connection from the pool and perform an HTTP request. This is the
+        lowest level call for making a request, so you'll need to specify all
+        the raw details.
+    
+        .. note::
+    
+           More commonly, it's appropriate to use a convenience method
+           such as :meth:`request`.
+    
+        .. note::
+    
+           `release_conn` will only behave as expected if
+           `preload_content=False` because we want to make
+           `preload_content=False` the default behaviour someday soon without
+           breaking backwards compatibility.
+    
+        :param method:
+            HTTP request method (such as GET, POST, PUT, etc.)
+    
+        :param url:
+            The URL to perform the request on.
+    
+        :param body:
+            Data to send in the request body, either :class:`str`, :class:`bytes`,
+            an iterable of :class:`str`/:class:`bytes`, or a file-like object.
+    
+        :param headers:
+            Dictionary of custom headers to send, such as User-Agent,
+            If-None-Match, etc. If None, pool headers are used. If provided,
+            these headers completely replace any pool-specific headers.
+    
+        :param retries:
+            Configure the number of retries to allow before raising a
+            :class:`~urllib3.exceptions.MaxRetryError` exception.
+    
+            If ``None`` (default) will retry 3 times, see ``Retry.DEFAULT``. Pass a
+            :class:`~urllib3.util.retry.Retry` object for fine-grained control
+            over different types of retries.
+            Pass an integer number to retry connection errors that many times,
+            but no other types of errors. Pass zero to never retry.
+    
+            If ``False``, then retries are disabled and any exception is raised
+            immediately. Also, instead of raising a MaxRetryError on redirects,
+            the redirect response will be returned.
+    
+        :type retries: :class:`~urllib3.util.retry.Retry`, False, or an int.
+    
+        :param redirect:
+            If True, automatically handle redirects (status codes 301, 302,
+            303, 307, 308). Each redirect counts as a retry. Disabling retries
+            will disable redirect, too.
+    
+        :param assert_same_host:
+            If ``True``, will make sure that the host of the pool requests is
+            consistent else will raise HostChangedError. When ``False``, you can
+            use the pool on an HTTP proxy and request foreign hosts.
+    
+        :param timeout:
+            If specified, overrides the default timeout for this one
+            request. It may be a float (in seconds) or an instance of
+            :class:`urllib3.util.Timeout`.
+    
+        :param pool_timeout:
+            If set and the pool is set to block=True, then this method will
+            block for ``pool_timeout`` seconds and raise EmptyPoolError if no
+            connection is available within the time period.
+    
+        :param bool preload_content:
+            If True, the response's body will be preloaded into memory.
+    
+        :param bool decode_content:
+            If True, will attempt to decode the body based on the
+            'content-encoding' header.
+    
+        :param release_conn:
+            If False, then the urlopen call will not release the connection
+            back into the pool once a response is received (but will release if
+            you read the entire contents of the response such as when
+            `preload_content=True`). This is useful if you're not preloading
+            the response's content immediately. You will need to call
+            ``r.release_conn()`` on the response ``r`` to return the connection
+            back into the pool. If None, it takes the value of ``preload_content``
+            which defaults to ``True``.
+    
+        :param bool chunked:
+            If True, urllib3 will send the body using chunked transfer
+            encoding. Otherwise, urllib3 will send the body using the standard
+            content-length form. Defaults to False.
+    
+        :param int body_pos:
+            Position to seek to in file-like body in the event of a retry or
+            redirect. Typically this won't need to be set because urllib3 will
+            auto-populate the value when needed.
+        """
+        # Ensure that the URL we're connecting to is properly encoded
+        if url.startswith("/"):
+            # URLs starting with / are inherently schemeless.
+            url = to_str(_encode_target(url))
+            destination_scheme = None
+        else:
+            parsed_url = parse_url(url)
+            destination_scheme = parsed_url.scheme
+            url = to_str(parsed_url._replace(fragment=None).url)
+    
+        if headers is None:
+            headers = self.headers
+    
+        if not isinstance(retries, Retry):
+            retries = Retry.from_int(retries, redirect=redirect, default=self.retries)
+    
+        if release_conn is None:
+            release_conn = preload_content
+    
+        # Check host
+        if assert_same_host and not self.is_same_host(url):
+            raise HostChangedError(self, url, retries)
+    
+        conn = None
+    
+        # Track whether `conn` needs to be released before
+        # returning/raising/recursing. Update this variable if necessary, and
+        # leave `release_conn` constant throughout the function. That way, if
+        # the function recurses, the original value of `release_conn` will be
+        # passed down into the recursive call, and its value will be respected.
+        #
+        # See issue #651 [1] for details.
+        #
+        # [1] <https://github.com/urllib3/urllib3/issues/651>
+        release_this_conn = release_conn
+    
+        http_tunnel_required = connection_requires_http_tunnel(
+            self.proxy, self.proxy_config, destination_scheme
+        )
+    
+        # Merge the proxy headers. Only done when not using HTTP CONNECT. We
+        # have to copy the headers dict so we can safely change it without those
+        # changes being reflected in anyone else's copy.
+        if not http_tunnel_required:
+            headers = headers.copy()  # type: ignore[attr-defined]
+            headers.update(self.proxy_headers)  # type: ignore[union-attr]
+    
+        # Must keep the exception bound to a separate variable or else Python 3
+        # complains about UnboundLocalError.
+        err = None
+    
+        # Keep track of whether we cleanly exited the except block. This
+        # ensures we do proper cleanup in finally.
+        clean_exit = False
+    
+        # Rewind body position, if needed. Record current position
+        # for future rewinds in the event of a redirect/retry.
+        body_pos = set_file_position(body, body_pos)
+    
+        timeout_obj = self._get_timeout(timeout)
+        try:
+            # Request a connection from the queue.
+            conn = self._get_conn(timeout=pool_timeout)
+            conn.timeout = timeout_obj.connect_timeout  # type: ignore[assignment]
+    
+            # Is this a closed/new connection that requires CONNECT tunnelling?
+            if self.proxy is not None and http_tunnel_required and conn.is_closed:
+                try:
+                    self._prepare_proxy(conn)
+                except (BaseSSLError, OSError, SocketTimeout) as e:
+                    self._raise_timeout(
+                        err=e, url=self.proxy.url, timeout_value=conn.timeout
+                    )
+                    raise
+    
+            # If we're going to release the connection in ``finally:``, then
+            # the response doesn't need to know about the connection. Otherwise
+            # it will also try to release it and we'll have a double-release
+            # mess.
+            response_conn = conn if not release_conn else None
+    
+            # Make the request on the HTTPConnection object
+>           response = self._make_request(
+                conn,
+                method,
+                url,
+                timeout=timeout_obj,
+                body=body,
+                headers=headers,
+                chunked=chunked,
+                retries=retries,
+                response_conn=response_conn,
+                preload_content=preload_content,
+                decode_content=decode_content,
+                **response_kw,
+            )
+
+venv\Lib\site-packages\urllib3\connectionpool.py:793: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:494: in _make_request
+    raise new_e
+venv\Lib\site-packages\urllib3\connectionpool.py:470: in _make_request
+    self._validate_conn(conn)
+venv\Lib\site-packages\urllib3\connectionpool.py:1125: in _validate_conn
+    conn.connect()
+venv\Lib\site-packages\urllib3\connection.py:827: in connect
+    self.sock = sock = self._new_conn()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>
+
+    def _new_conn(self) -> socket.socket:
+        """Establish a socket connection and set nodelay settings on it.
+    
+        :return: New socket connection.
+        """
+        try:
+            sock = connection.create_connection(
+                (self._dns_host, self.port),
+                self.timeout,
+                source_address=self.source_address,
+                socket_options=self.socket_options,
+            )
+        except socket.gaierror as e:
+            raise NameResolutionError(self.host, self, e) from e
+        except SocketTimeout as e:
+>           raise ConnectTimeoutError(
+                self,
+                f"Connection to {self.host} timed out. (connect timeout={self.timeout})",
+            ) from e
+E           urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)')
+
+venv\Lib\site-packages\urllib3\connection.py:248: ConnectTimeoutError
+
+The above exception was the direct cause of the following exception:
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD700B250>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+>           resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+
+venv\Lib\site-packages\requests\adapters.py:667: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\urllib3\connectionpool.py:847: in urlopen
+    retries = retries.increment(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = Retry(total=0, connect=None, read=False, redirect=None, status=None)
+method = 'GET', url = '/chrome-for-testing/latest-patch-versions-per-build.json'
+response = None
+error = ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)')
+_pool = <urllib3.connectionpool.HTTPSConnectionPool object at 0x0000022FD5CC7820>
+_stacktrace = <traceback object at 0x0000022FD71120C0>
+
+    def increment(
+        self,
+        method: str | None = None,
+        url: str | None = None,
+        response: BaseHTTPResponse | None = None,
+        error: Exception | None = None,
+        _pool: ConnectionPool | None = None,
+        _stacktrace: TracebackType | None = None,
+    ) -> Self:
+        """Return a new Retry object with incremented retry counters.
+    
+        :param response: A response object, or None, if the server did not
+            return a response.
+        :type response: :class:`~urllib3.response.BaseHTTPResponse`
+        :param Exception error: An error encountered during the request, or
+            None if the response was received successfully.
+    
+        :return: A new ``Retry`` object.
+        """
+        if self.total is False and error:
+            # Disabled, indicate to re-raise the error.
+            raise reraise(type(error), error, _stacktrace)
+    
+        total = self.total
+        if total is not None:
+            total -= 1
+    
+        connect = self.connect
+        read = self.read
+        redirect = self.redirect
+        status_count = self.status
+        other = self.other
+        cause = "unknown"
+        status = None
+        redirect_location = None
+    
+        if error and self._is_connection_error(error):
+            # Connect retry?
+            if connect is False:
+                raise reraise(type(error), error, _stacktrace)
+            elif connect is not None:
+                connect -= 1
+    
+        elif error and self._is_read_error(error):
+            # Read retry?
+            if read is False or method is None or not self._is_method_retryable(method):
+                raise reraise(type(error), error, _stacktrace)
+            elif read is not None:
+                read -= 1
+    
+        elif error:
+            # Other retry?
+            if other is not None:
+                other -= 1
+    
+        elif response and response.get_redirect_location():
+            # Redirect retry?
+            if redirect is not None:
+                redirect -= 1
+            cause = "too many redirects"
+            response_redirect_location = response.get_redirect_location()
+            if response_redirect_location:
+                redirect_location = response_redirect_location
+            status = response.status
+    
+        else:
+            # Incrementing because of a server error like a 500 in
+            # status_forcelist and the given method is in the allowed_methods
+            cause = ResponseError.GENERIC_ERROR
+            if response and response.status:
+                if status_count is not None:
+                    status_count -= 1
+                cause = ResponseError.SPECIFIC_ERROR.format(status_code=response.status)
+                status = response.status
+    
+        history = self.history + (
+            RequestHistory(method, url, error, status, redirect_location),
+        )
+    
+        new_retry = self.new(
+            total=total,
+            connect=connect,
+            read=read,
+            redirect=redirect,
+            status=status_count,
+            other=other,
+            history=history,
+        )
+    
+        if new_retry.is_exhausted():
+            reason = error or ResponseError(cause)
+>           raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+E           urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='googlechromelabs.github.io', port=443): Max retries exceeded with url: /chrome-for-testing/latest-patch-versions-per-build.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)'))
+
+venv\Lib\site-packages\urllib3\util\retry.py:555: MaxRetryError
+
+During handling of the above exception, another exception occurred:
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD70C8A00>
+url = 'https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+>           resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+venv\Lib\site-packages\requests\api.py:73: in get
+    return request("get", url, params=params, **kwargs)
+venv\Lib\site-packages\requests\api.py:59: in request
+    return session.request(method=method, url=url, **kwargs)
+venv\Lib\site-packages\requests\sessions.py:589: in request
+    resp = self.send(prep, **send_kwargs)
+venv\Lib\site-packages\requests\sessions.py:703: in send
+    r = adapter.send(request, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <requests.adapters.HTTPAdapter object at 0x0000022FD700B250>
+request = <PreparedRequest [GET]>, stream = True
+timeout = Timeout(connect=None, read=None, total=None), verify = True
+cert = None, proxies = OrderedDict()
+
+    def send(
+        self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None
+    ):
+        """Sends PreparedRequest object. Returns Response object.
+    
+        :param request: The :class:`PreparedRequest <PreparedRequest>` being sent.
+        :param stream: (optional) Whether to stream the request content.
+        :param timeout: (optional) How long to wait for the server to send
+            data before giving up, as a float, or a :ref:`(connect timeout,
+            read timeout) <timeouts>` tuple.
+        :type timeout: float or tuple or urllib3 Timeout object
+        :param verify: (optional) Either a boolean, in which case it controls whether
+            we verify the server's TLS certificate, or a string, in which case it
+            must be a path to a CA bundle to use
+        :param cert: (optional) Any user-provided SSL certificate to be trusted.
+        :param proxies: (optional) The proxies dictionary to apply to the request.
+        :rtype: requests.Response
+        """
+    
+        try:
+            conn = self.get_connection_with_tls_context(
+                request, verify, proxies=proxies, cert=cert
+            )
+        except LocationValueError as e:
+            raise InvalidURL(e, request=request)
+    
+        self.cert_verify(conn, request.url, verify, cert)
+        url = self.request_url(request, proxies)
+        self.add_headers(
+            request,
+            stream=stream,
+            timeout=timeout,
+            verify=verify,
+            cert=cert,
+            proxies=proxies,
+        )
+    
+        chunked = not (request.body is None or "Content-Length" in request.headers)
+    
+        if isinstance(timeout, tuple):
+            try:
+                connect, read = timeout
+                timeout = TimeoutSauce(connect=connect, read=read)
+            except ValueError:
+                raise ValueError(
+                    f"Invalid timeout {timeout}. Pass a (connect, read) timeout tuple, "
+                    f"or a single float to set both timeouts to the same value."
+                )
+        elif isinstance(timeout, TimeoutSauce):
+            pass
+        else:
+            timeout = TimeoutSauce(connect=timeout, read=timeout)
+    
+        try:
+            resp = conn.urlopen(
+                method=request.method,
+                url=url,
+                body=request.body,
+                headers=request.headers,
+                redirect=False,
+                assert_same_host=False,
+                preload_content=False,
+                decode_content=False,
+                retries=self.max_retries,
+                timeout=timeout,
+                chunked=chunked,
+            )
+    
+        except (ProtocolError, OSError) as err:
+            raise ConnectionError(err, request=request)
+    
+        except MaxRetryError as e:
+            if isinstance(e.reason, ConnectTimeoutError):
+                # TODO: Remove this in 3.0.0: see #2811
+                if not isinstance(e.reason, NewConnectionError):
+>                   raise ConnectTimeout(e, request=request)
+E                   requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='googlechromelabs.github.io', port=443): Max retries exceeded with url: /chrome-for-testing/latest-patch-versions-per-build.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='googlechromelabs.github.io', port=443) at 0x22fd5d97750>, 'Connection to googlechromelabs.github.io timed out. (connect timeout=None)'))
+
+venv\Lib\site-packages\requests\adapters.py:688: ConnectTimeout
+
+During handling of the above exception, another exception occurred:
+
+    @pytest.fixture
+    def driver():
+>       drv = build_driver(BROWSER)
+
+conftest.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+utils\test_helpers.py:39: in build_driver
+    service = ChromeService(ChromeDriverManager().install())
+venv\Lib\site-packages\webdriver_manager\chrome.py:40: in install
+    driver_path = self._get_driver_binary_path(self.driver)
+venv\Lib\site-packages\webdriver_manager\core\manager.py:35: in _get_driver_binary_path
+    binary_path = self._cache_manager.find_driver(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:107: in find_driver
+    driver_version = self.get_cache_key_driver_version(driver)
+venv\Lib\site-packages\webdriver_manager\core\driver_cache.py:154: in get_cache_key_driver_version
+    return driver.get_driver_version_to_download()
+venv\Lib\site-packages\webdriver_manager\core\driver.py:48: in get_driver_version_to_download
+    return self.get_latest_release_version()
+venv\Lib\site-packages\webdriver_manager\drivers\chrome.py:59: in get_latest_release_version
+    response = self._http_client.get(url)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <webdriver_manager.core.http.WDMHttpClient object at 0x0000022FD70C8A00>
+url = 'https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json'
+kwargs = {}
+
+    def get(self, url, **kwargs) -> Response:
+        try:
+            resp = requests.get(
+                url=url, verify=self._ssl_verify, stream=True, **kwargs)
+        except exceptions.ConnectionError:
+>           raise exceptions.ConnectionError(f"Could not reach host. Are you offline?")
+E           requests.exceptions.ConnectionError: Could not reach host. Are you offline?
+
+venv\Lib\site-packages\webdriver_manager\core\http.py:35: ConnectionError
+================================== FAILURES ===================================
+___ TestRegistration.test_registration_rejects_invalid_email[plainaddress] ____
+
+self = <tests.test_ui_authentication.TestRegistration object at 0x0000022FD579DA70>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="7086d756d154518a535c2f0fa53af944")>
+bad_email = 'plainaddress'
+
+    @pytest.mark.parametrize('bad_email', INVALID_EMAILS)
+    def test_registration_rejects_invalid_email(self, driver, bad_email):
+        page = RegisterPage(driver).open()
+        page.register('Invalid Email User', bad_email, 'StrongPass123', role='candidate')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.RegisterPage object at 0x0000022FD5CDBDF0>.has_error
+
+tests\test_ui_authentication.py:43: AssertionError
+_ TestRegistration.test_registration_rejects_invalid_email[@missingusername.com] _
+
+self = <tests.test_ui_authentication.TestRegistration object at 0x0000022FD564C830>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="8b7b6d3e29e7ea4c978f4f35996130a4")>
+bad_email = '@missingusername.com'
+
+    @pytest.mark.parametrize('bad_email', INVALID_EMAILS)
+    def test_registration_rejects_invalid_email(self, driver, bad_email):
+        page = RegisterPage(driver).open()
+        page.register('Invalid Email User', bad_email, 'StrongPass123', role='candidate')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.RegisterPage object at 0x0000022FD71F8050>.has_error
+
+tests\test_ui_authentication.py:43: AssertionError
+_____ TestRegistration.test_registration_rejects_invalid_email[user@.com] _____
+
+self = <tests.test_ui_authentication.TestRegistration object at 0x0000022FD5845AE0>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="d4cae259351e813d1197c074f735e580")>
+bad_email = 'user@.com'
+
+    @pytest.mark.parametrize('bad_email', INVALID_EMAILS)
+    def test_registration_rejects_invalid_email(self, driver, bad_email):
+        page = RegisterPage(driver).open()
+        page.register('Invalid Email User', bad_email, 'StrongPass123', role='candidate')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.RegisterPage object at 0x0000022FD57DE850>.has_error
+
+tests\test_ui_authentication.py:43: AssertionError
+_ TestRegistration.test_registration_rejects_invalid_email[user name@site.com] _
+
+self = <tests.test_ui_authentication.TestRegistration object at 0x0000022FD57DD150>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="a09104612e5d2e62eaec700ac02ca29e")>
+bad_email = 'user name@site.com'
+
+    @pytest.mark.parametrize('bad_email', INVALID_EMAILS)
+    def test_registration_rejects_invalid_email(self, driver, bad_email):
+        page = RegisterPage(driver).open()
+        page.register('Invalid Email User', bad_email, 'StrongPass123', role='candidate')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.RegisterPage object at 0x0000022FD6DE8140>.has_error
+
+tests\test_ui_authentication.py:43: AssertionError
+_________ TestRegistration.test_registration_rejects_weak_password[] __________
+
+self = <tests.test_ui_authentication.TestRegistration object at 0x0000022FD57DD250>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="0ce45491fdb0bd174450d4f8d57091d4")>
+weak_password = ''
+
+    @pytest.mark.parametrize('weak_password', WEAK_PASSWORDS)
+    def test_registration_rejects_weak_password(self, driver, weak_password):
+        page = RegisterPage(driver).open()
+        page.register('Weak Password User', unique_email('weak'), weak_password, role='candidate')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.RegisterPage object at 0x0000022FD7151400>.has_error
+
+tests\test_ui_authentication.py:49: AssertionError
+____________ TestRegistration.test_registration_rejects_empty_name ____________
+
+self = <tests.test_ui_authentication.TestRegistration object at 0x0000022FD587DA90>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="c69bc3bdd169316f49bab5b2a7eba682")>
+
+    def test_registration_rejects_empty_name(self, driver):
+        page = RegisterPage(driver).open()
+        page.register('', unique_email('noname'), 'StrongPass123', role='candidate')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.RegisterPage object at 0x0000022FD70BEC30>.has_error
+
+tests\test_ui_authentication.py:54: AssertionError
+_______________ TestLogin.test_login_rejects_incorrect_password _______________
+
+self = <tests.test_ui_authentication.TestLogin object at 0x0000022FD579DBA0>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="a3906871c0531cb25753e7f0e5ec876a")>
+
+    def test_login_rejects_incorrect_password(self, driver):
+        page = LoginPage(driver).open()
+        page.login(CANDIDATE_EMAIL, 'WrongPassword999')
+>       assert page.has_error()
+E       assert False
+E        +  where False = has_error()
+E        +    where has_error = <pages.auth_page.LoginPage object at 0x0000022FD5CDB350>.has_error
+
+tests\test_ui_authentication.py:76: AssertionError
+_______________ TestProfile.test_profile_rejects_invalid_phone ________________
+
+self = <tests.test_ui_saved_jobs_profile.TestProfile object at 0x0000022FD579E8B0>
+driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="e954573e5e3703b1a00466b5e6c5a58d")>
+
+    def test_profile_rejects_invalid_phone(self, driver):
+        _login_as_fresh_candidate(driver)
+        profile_page = ProfilePage(driver).open()
+        profile_page.set_phone('not-a-phone')
+        profile_page.save()
+>       assert profile_page.is_present('profile-error')
+E       AssertionError: assert False
+E        +  where False = is_present('profile-error')
+E        +    where is_present = <pages.profile_page.ProfilePage object at 0x0000022FD5CC6D70>.is_present
+
+tests\test_ui_saved_jobs_profile.py:80: AssertionError
+- Generated html report: file:///D:/RITIKA/python-automation/reports/report.html -
+=========================== short test summary info ===========================
+ERROR tests/test_cross_browser.py::test_jobs_page_loads_on_each_browser[edge]
+ERROR tests/test_cross_browser.py::test_login_works_on_each_browser[edge] - r...
+ERROR tests/test_responsive_layout.py::test_jobs_page_renders_without_horizontal_overflow[desktop]
+ERROR tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_weak_password[ab]
+ERROR tests/test_ui_job_applications.py::TestJobApplications::test_duplicate_application_is_prevented
+FAILED tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[plainaddress]
+FAILED tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[@missingusername.com]
+FAILED tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[user@.com]
+FAILED tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_invalid_email[user name@site.com]
+FAILED tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_weak_password[]
+FAILED tests/test_ui_authentication.py::TestRegistration::test_registration_rejects_empty_name
+FAILED tests/test_ui_authentication.py::TestLogin::test_login_rejects_incorrect_password
+FAILED tests/test_ui_saved_jobs_profile.py::TestProfile::test_profile_rejects_invalid_phone
+============ 8 failed, 103 passed, 5 errors in 1682.00s (0:28:02) =============
